@@ -99,32 +99,27 @@ int main(void)
   /* USER CODE END 2 */
 
   /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-  while (1)
-  {
+  /* USER CODE END WHILE */
+  char message[]="";
+  int i = 0;
+  while (1) {
 	  /* USER CODE END WHILE */
-	  char message[]="";
-	  int i = 0;
-	  while (1) {
-		  /* USER CODE END WHILE */
 
-		  /* USER CODE BEGIN 3 */
-		  serialPrint("Loop ");
-	  	  sprintf(message, "%d", i);
-	  	  serialPrint(message);
-	  	  HAL_Delay(1000);
-
-	  	  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
-	  	  serialPrint(" LED ON ... ");
-	  	  HAL_Delay(1000);
-
-	  	  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
-	  	  serialPrint("LED OFF\r\n");
-	  	  HAL_Delay(1000);
-
-	  	  i++;
-	  }
 	  /* USER CODE BEGIN 3 */
+	  serialPrint("Loop ");
+	  sprintf(message, "%d", i);
+	  serialPrint(message);
+	  HAL_Delay(1000);
+
+	  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+	  serialPrint(" LED ON ... ");
+	  HAL_Delay(1000);
+
+	  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+	  serialPrint("LED OFF\r\n");
+	  HAL_Delay(1000);
+
+	  i++;
   }
   /* USER CODE END 3 */
 }
