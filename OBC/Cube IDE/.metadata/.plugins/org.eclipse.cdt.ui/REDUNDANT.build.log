@@ -1,10 +1,10 @@
-15:32:46 **** Incremental Build of configuration Debug for project REDUNDANT ****
+09:53:17 **** Incremental Build of configuration Debug for project REDUNDANT ****
 make -j16 all 
 arm-none-eabi-size   REDUNDANT.elf 
    text	   data	    bss	    dec	    hex	filename
-   7944	     24	   1728	   9696	   25e0	REDUNDANT.elf
+   7968	     24	   1720	   9712	   25f0	REDUNDANT.elf
 Finished building: default.size.stdout
  
 
-15:32:46 Build Finished. 0 errors, 0 warnings. (took 190ms)
+09:53:17 Build Finished. 0 errors, 0 warnings. (took 245ms)
 

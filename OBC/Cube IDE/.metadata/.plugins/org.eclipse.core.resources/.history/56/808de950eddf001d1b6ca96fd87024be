@@ -44,6 +44,8 @@ I2C_HandleTypeDef hi2c1;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
+char strReceived[128] = "";
+
 uint8_t ADDRESS_MAIN = 0x90;
 uint8_t ADDRESS_REDUNDANT = 0x92;
 
@@ -61,28 +63,26 @@ static void MX_USART1_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-//	char strReceived[128] = "";
-
-//	void serialPrintBuffer(){
-//		for(int i = 0; i<sizeof(bufferRedundant); i++){
-//			sprintf(&strReceived[i], "%d, ", bufferRedundant[i]);
-//		}
-//		serialPrint(strReceived);
-//		serialPrint("\r\n");
-//	}
-
-	void serialPrint(char *string){
-		uint8_t len = strlen(string);
-		HAL_UART_Transmit(&huart1, (uint8_t *)string, len, 10000);
+void serialPrintBuffer(){
+	for(int i = 0; i<sizeof(buffer); i++){
+		sprintf(&strReceived[i], "%d, ", buffer[i]);
 	}
+	serialPrint(strReceived);
+	serialPrint("\r\n");
+}
 
-	void blink(){
-		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
-		HAL_Delay(1000);
+void serialPrint(char *string){
+	uint8_t len = strlen(string);
+	HAL_UART_Transmit(&huart1, (uint8_t *)string, len, 10000);
+}
 
-		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
-		HAL_Delay(1000);
-	}
+void blink(){
+	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+	HAL_Delay(1000);
+
+	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+	HAL_Delay(1000);
+}
 /* USER CODE END 0 */
 
 /**
@@ -92,7 +92,7 @@ static void MX_USART1_UART_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	uint8_t bufferRedundant[8]= {0};
+	uint8_t buffer[8]= {0};
 	uint8_t REDUNDANT_TAKEOVER[8] = {125, 4, 1, 0, 0, 0, 0, 0};
   /* USER CODE END 1 */
 
@@ -128,8 +128,10 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	  serialPrint("Test Receiving Data via I2C ... ");
-	  if(HAL_I2C_Slave_Receive(&hi2c1, bufferRedundant, sizeof(bufferRedundant), 5000) == HAL_OK){
+	  if(HAL_I2C_Slave_Receive(&hi2c1, buffer, sizeof(buffer), 5000) == HAL_OK){
 		  serialPrint("Receive Successfully ... ");
+		  serialPrint("Data: ");
+		  serialPrintBuffer();
 	  } else {
 		  serialPrint("Receive Failed\r\n");
 	  }

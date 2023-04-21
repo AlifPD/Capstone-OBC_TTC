@@ -440,3 +440,540 @@ arm-none-eabi-size   REDUNDANT.elf
    7944	     24	   1728	   9696	   25e0	REDUNDANT.elf
 Finished building: default.size.stdout
  
+09:19:03 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'serialPrintBuffer':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   69 |   sprintf(&strReceived[i], "%d, ", buffer[i]);
+      |   ^~~~~~~
+../Core/Src/main.c:69:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:71:2: warning: implicit declaration of function 'serialPrint'; did you mean 'serialPrintBuffer'? [-Wimplicit-function-declaration]
+   71 |  serialPrint(strReceived);
+      |  ^~~~~~~~~~~
+      |  serialPrintBuffer
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:75:6: warning: conflicting types for 'serialPrint'
+   75 | void serialPrint(char *string){
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:71:2: note: previous implicit declaration of 'serialPrint' was here
+   71 |  serialPrint(strReceived);
+      |  ^~~~~~~~~~~
+../Core/Src/main.c: In function 'serialPrint':
+../Core/Src/main.c:76:16: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   76 |  uint8_t len = strlen(string);
+      |                ^~~~~~
+../Core/Src/main.c:76:16: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+arm-none-eabi-gcc -o "REDUNDANT.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\REDUNDANT\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="REDUNDANT.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: REDUNDANT.elf
+ 
+arm-none-eabi-size   REDUNDANT.elf 
+arm-none-eabi-objdump -h -S  REDUNDANT.elf  > "REDUNDANT.list"
+   text	   data	    bss	    dec	    hex	filename
+  10512	    124	   1876	  12512	   30e0	REDUNDANT.elf
+Finished building: default.size.stdout
+ 
+Finished building: REDUNDANT.list
+ 
+09:19:29 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'serialPrintBuffer':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   69 |   sprintf(&strReceived[i], "%d, ", buffer[i]);
+      |   ^~~~~~~
+../Core/Src/main.c:69:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:71:2: warning: implicit declaration of function 'serialPrint'; did you mean 'serialPrintBuffer'? [-Wimplicit-function-declaration]
+   71 |  serialPrint(strReceived);
+      |  ^~~~~~~~~~~
+      |  serialPrintBuffer
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:75:6: warning: conflicting types for 'serialPrint'
+   75 | void serialPrint(char *string){
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:71:2: note: previous implicit declaration of 'serialPrint' was here
+   71 |  serialPrint(strReceived);
+      |  ^~~~~~~~~~~
+../Core/Src/main.c: In function 'serialPrint':
+../Core/Src/main.c:76:16: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   76 |  uint8_t len = strlen(string);
+      |                ^~~~~~
+../Core/Src/main.c:76:16: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+arm-none-eabi-gcc -o "REDUNDANT.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\REDUNDANT\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="REDUNDANT.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: REDUNDANT.elf
+ 
+arm-none-eabi-size   REDUNDANT.elf 
+arm-none-eabi-objdump -h -S  REDUNDANT.elf  > "REDUNDANT.list"
+   text	   data	    bss	    dec	    hex	filename
+  10516	    124	   1876	  12516	   30e4	REDUNDANT.elf
+Finished building: default.size.stdout
+ 
+Finished building: REDUNDANT.list
+ 
+09:23:30 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-size   REDUNDANT.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10516	    124	   1876	  12516	   30e4	REDUNDANT.elf
+Finished building: default.size.stdout
+ 
+09:24:19 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-size   REDUNDANT.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10516	    124	   1876	  12516	   30e4	REDUNDANT.elf
+Finished building: default.size.stdout
+ 
+09:25:12 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-size   REDUNDANT.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10516	    124	   1876	  12516	   30e4	REDUNDANT.elf
+Finished building: default.size.stdout
+ 
+09:26:30 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'serialPrintBuffer':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   69 |   sprintf(&strReceived[i], "%d, ", buffer[i]);
+      |   ^~~~~~~
+../Core/Src/main.c:69:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:71:2: warning: implicit declaration of function 'serialPrint'; did you mean 'serialPrintBuffer'? [-Wimplicit-function-declaration]
+   71 |  serialPrint(strReceived);
+      |  ^~~~~~~~~~~
+      |  serialPrintBuffer
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:75:6: warning: conflicting types for 'serialPrint'
+   75 | void serialPrint(char *string){
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:71:2: note: previous implicit declaration of 'serialPrint' was here
+   71 |  serialPrint(strReceived);
+      |  ^~~~~~~~~~~
+../Core/Src/main.c: In function 'serialPrint':
+../Core/Src/main.c:76:16: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   76 |  uint8_t len = strlen(string);
+      |                ^~~~~~
+../Core/Src/main.c:76:16: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+arm-none-eabi-gcc -o "REDUNDANT.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\REDUNDANT\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="REDUNDANT.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: REDUNDANT.elf
+ 
+arm-none-eabi-size   REDUNDANT.elf 
+arm-none-eabi-objdump -h -S  REDUNDANT.elf  > "REDUNDANT.list"
+   text	   data	    bss	    dec	    hex	filename
+  10516	    124	   1876	  12516	   30e4	REDUNDANT.elf
+Finished building: default.size.stdout
+ 
+Finished building: REDUNDANT.list
+ 
+09:28:42 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'serialPrintBuffer':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   69 |   sprintf(&strReceived[i], "%d, ", buffer[i]);
+      |   ^~~~~~~
+../Core/Src/main.c:69:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:71:2: warning: implicit declaration of function 'serialPrint'; did you mean 'serialPrintBuffer'? [-Wimplicit-function-declaration]
+   71 |  serialPrint(strReceived);
+      |  ^~~~~~~~~~~
+      |  serialPrintBuffer
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:75:6: warning: conflicting types for 'serialPrint'
+   75 | void serialPrint(char *string){
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:71:2: note: previous implicit declaration of 'serialPrint' was here
+   71 |  serialPrint(strReceived);
+      |  ^~~~~~~~~~~
+../Core/Src/main.c: In function 'serialPrint':
+../Core/Src/main.c:76:16: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   76 |  uint8_t len = strlen(string);
+      |                ^~~~~~
+../Core/Src/main.c:76:16: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+arm-none-eabi-gcc -o "REDUNDANT.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\REDUNDANT\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="REDUNDANT.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: REDUNDANT.elf
+ 
+arm-none-eabi-size   REDUNDANT.elf 
+arm-none-eabi-objdump -h -S  REDUNDANT.elf  > "REDUNDANT.list"
+   text	   data	    bss	    dec	    hex	filename
+  10516	    124	   1876	  12516	   30e4	REDUNDANT.elf
+Finished building: default.size.stdout
+ 
+Finished building: REDUNDANT.list
+ 
+09:31:15 **** Incremental Build of configuration Debug for project MAIN-A ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'serialPrintBuffer':
+../Core/Src/main.c:70:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   70 |   sprintf(&strReceived[i], "%d, ", buffer[i]);
+      |   ^~~~~~~
+../Core/Src/main.c:70:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:72:2: warning: implicit declaration of function 'serialPrint'; did you mean 'serialPrintBuffer'? [-Wimplicit-function-declaration]
+   72 |  serialPrint(strReceived);
+      |  ^~~~~~~~~~~
+      |  serialPrintBuffer
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:76:6: warning: conflicting types for 'serialPrint'
+   76 | void serialPrint(char *string){
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:72:2: note: previous implicit declaration of 'serialPrint' was here
+   72 |  serialPrint(strReceived);
+      |  ^~~~~~~~~~~
+../Core/Src/main.c: In function 'serialPrint':
+../Core/Src/main.c:77:16: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   77 |  uint8_t len = strlen(string);
+      |                ^~~~~~
+../Core/Src/main.c:77:16: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+arm-none-eabi-gcc -o "MAIN-A.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\MAIN-A\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MAIN-A.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: MAIN-A.elf
+ 
+arm-none-eabi-size   MAIN-A.elf 
+arm-none-eabi-objdump -h -S  MAIN-A.elf  > "MAIN-A.list"
+   text	   data	    bss	    dec	    hex	filename
+  11252	     32	   1720	  13004	   32cc	MAIN-A.elf
+Finished building: default.size.stdout
+ 
+Finished building: MAIN-A.list
+ 
+09:33:06 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-size   REDUNDANT.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10516	    124	   1876	  12516	   30e4	REDUNDANT.elf
+Finished building: default.size.stdout
+ 
+09:35:50 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'serialPrintBuffer':
+../Core/Src/main.c:67:26: error: 'buffer' undeclared (first use in this function)
+   67 |  for(int i = 0; i<sizeof(buffer); i++){
+      |                          ^~~~~~
+../Core/Src/main.c:67:26: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:68:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   68 |   sprintf(&strReceived[i], "%d, ", buffer[i]);
+      |   ^~~~~~~
+../Core/Src/main.c:68:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:70:2: warning: implicit declaration of function 'serialPrint'; did you mean 'serialPrintBuffer'? [-Wimplicit-function-declaration]
+   70 |  serialPrint(strReceived);
+      |  ^~~~~~~~~~~
+      |  serialPrintBuffer
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:74:6: warning: conflicting types for 'serialPrint'
+   74 | void serialPrint(char *string){
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:70:2: note: previous implicit declaration of 'serialPrint' was here
+   70 |  serialPrint(strReceived);
+      |  ^~~~~~~~~~~
+../Core/Src/main.c: In function 'serialPrint':
+../Core/Src/main.c:75:16: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   75 |  uint8_t len = strlen(string);
+      |                ^~~~~~
+../Core/Src/main.c:75:16: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:96:10: warning: unused variable 'REDUNDANT_TAKEOVER' [-Wunused-variable]
+   96 |  uint8_t REDUNDANT_TAKEOVER[8] = {125, 4, 1, 0, 0, 0, 0, 0};
+      |          ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+09:36:27 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'serialPrint':
+../Core/Src/main.c:69:16: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   69 |  uint8_t len = strlen(string);
+      |                ^~~~~~
+../Core/Src/main.c:69:16: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c: In function 'serialPrintBuffer':
+../Core/Src/main.c:94:4: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   94 |    sprintf(&strReceived[i], "%d, ", buffer[i]);
+      |    ^~~~~~~
+../Core/Src/main.c:94:4: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:90:10: warning: unused variable 'REDUNDANT_TAKEOVER' [-Wunused-variable]
+   90 |  uint8_t REDUNDANT_TAKEOVER[8] = {125, 4, 1, 0, 0, 0, 0, 0};
+      |          ^~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "REDUNDANT.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\REDUNDANT\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="REDUNDANT.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: REDUNDANT.elf
+ 
+arm-none-eabi-size   REDUNDANT.elf 
+arm-none-eabi-objdump -h -S  REDUNDANT.elf  > "REDUNDANT.list"
+   text	   data	    bss	    dec	    hex	filename
+  10560	    124	   1868	  12552	   3108	REDUNDANT.elf
+Finished building: default.size.stdout
+ 
+Finished building: REDUNDANT.list
+ 
+09:37:49 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-size   REDUNDANT.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10560	    124	   1868	  12552	   3108	REDUNDANT.elf
+Finished building: default.size.stdout
+ 
+09:38:10 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-size   REDUNDANT.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10560	    124	   1868	  12552	   3108	REDUNDANT.elf
+Finished building: default.size.stdout
+ 
+09:38:25 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-size   REDUNDANT.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10560	    124	   1868	  12552	   3108	REDUNDANT.elf
+Finished building: default.size.stdout
+ 
+09:39:56 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-size   REDUNDANT.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10560	    124	   1868	  12552	   3108	REDUNDANT.elf
+Finished building: default.size.stdout
+ 
+09:42:55 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-size   REDUNDANT.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10560	    124	   1868	  12552	   3108	REDUNDANT.elf
+Finished building: default.size.stdout
+ 
+09:46:29 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'serialPrintBuffer':
+../Core/Src/main.c:71:4: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   71 |    sprintf(&strReceived[i], "%d, ", bufferRedundant[i]);
+      |    ^~~~~~~
+../Core/Src/main.c:71:4: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:73:3: warning: implicit declaration of function 'serialPrint'; did you mean 'serialPrintBuffer'? [-Wimplicit-function-declaration]
+   73 |   serialPrint(strReceived);
+      |   ^~~~~~~~~~~
+      |   serialPrintBuffer
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:77:7: warning: conflicting types for 'serialPrint'
+   77 |  void serialPrint(char *string){
+      |       ^~~~~~~~~~~
+../Core/Src/main.c:73:3: note: previous implicit declaration of 'serialPrint' was here
+   73 |   serialPrint(strReceived);
+      |   ^~~~~~~~~~~
+../Core/Src/main.c: In function 'serialPrint':
+../Core/Src/main.c:78:17: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   78 |   uint8_t len = strlen(string);
+      |                 ^~~~~~
+../Core/Src/main.c:78:17: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+arm-none-eabi-gcc -o "REDUNDANT.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\REDUNDANT\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="REDUNDANT.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: REDUNDANT.elf
+ 
+arm-none-eabi-size   REDUNDANT.elf 
+arm-none-eabi-objdump -h -S  REDUNDANT.elf  > "REDUNDANT.list"
+   text	   data	    bss	    dec	    hex	filename
+  10516	    124	   1876	  12516	   30e4	REDUNDANT.elf
+Finished building: default.size.stdout
+ 
+Finished building: REDUNDANT.list
+ 
+09:47:30 **** Incremental Build of configuration Debug for project MAIN-A ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'serialPrintBuffer':
+../Core/Src/main.c:70:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   70 |   sprintf(&strReceived[i], "%d, ", buffer[i]);
+      |   ^~~~~~~
+../Core/Src/main.c:70:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:72:2: warning: implicit declaration of function 'serialPrint'; did you mean 'serialPrintBuffer'? [-Wimplicit-function-declaration]
+   72 |  serialPrint(strReceived);
+      |  ^~~~~~~~~~~
+      |  serialPrintBuffer
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:76:6: warning: conflicting types for 'serialPrint'
+   76 | void serialPrint(char *string){
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:72:2: note: previous implicit declaration of 'serialPrint' was here
+   72 |  serialPrint(strReceived);
+      |  ^~~~~~~~~~~
+../Core/Src/main.c: In function 'serialPrint':
+../Core/Src/main.c:77:16: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   77 |  uint8_t len = strlen(string);
+      |                ^~~~~~
+../Core/Src/main.c:77:16: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+arm-none-eabi-gcc -o "MAIN-A.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\MAIN-A\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MAIN-A.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: MAIN-A.elf
+ 
+arm-none-eabi-size   MAIN-A.elf 
+arm-none-eabi-objdump -h -S  MAIN-A.elf  > "MAIN-A.list"
+   text	   data	    bss	    dec	    hex	filename
+  11252	     32	   1720	  13004	   32cc	MAIN-A.elf
+Finished building: default.size.stdout
+ 
+Finished building: MAIN-A.list
+ 
+09:48:07 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-size   REDUNDANT.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10516	    124	   1876	  12516	   30e4	REDUNDANT.elf
+Finished building: default.size.stdout
+ 
+09:49:01 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-size   REDUNDANT.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10516	    124	   1876	  12516	   30e4	REDUNDANT.elf
+Finished building: default.size.stdout
+ 
+09:50:28 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'serialPrintBuffer':
+../Core/Src/main.c:81:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   81 |     sprintf(&strReceived[i], "%d, ", bufferRedundant[i]);
+      |     ^~~~~~~
+../Core/Src/main.c:81:5: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:83:4: warning: implicit declaration of function 'serialPrint'; did you mean 'serialPrintBuffer'? [-Wimplicit-function-declaration]
+   83 |    serialPrint(strReceived);
+      |    ^~~~~~~~~~~
+      |    serialPrintBuffer
+../Core/Src/main.c: In function 'serialPrint':
+../Core/Src/main.c:88:18: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   88 |    uint8_t len = strlen(string);
+      |                  ^~~~~~
+../Core/Src/main.c:88:18: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:77:11: warning: unused variable 'REDUNDANT_TAKEOVER' [-Wunused-variable]
+   77 |   uint8_t REDUNDANT_TAKEOVER[8] = {125, 4, 1, 0, 0, 0, 0, 0};
+      |           ^~~~~~~~~~~~~~~~~~
+At top level:
+../Core/Src/main.c:92:8: warning: 'blink' defined but not used [-Wunused-function]
+   92 |   void blink(){
+      |        ^~~~~
+arm-none-eabi-gcc -o "REDUNDANT.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\REDUNDANT\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="REDUNDANT.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+e:\programs\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\bin\ld.exe: ./Core/Src/main.o: in function `serialPrintBuffer':
+E:/Kampus/TA/Code/Capstone-OBC_TTC/OBC/Cube IDE/REDUNDANT/Debug/../Core/Src/main.c:83: undefined reference to `serialPrint'
+e:\programs\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\bin\ld.exe: E:/Kampus/TA/Code/Capstone-OBC_TTC/OBC/Cube IDE/REDUNDANT/Debug/../Core/Src/main.c:84: undefined reference to `serialPrint'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: REDUNDANT.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+09:51:57 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'serialPrint':
+../Core/Src/main.c:75:17: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   75 |   uint8_t len = strlen(string);
+      |                 ^~~~~~
+../Core/Src/main.c:75:17: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:96:10: warning: unused variable 'REDUNDANT_TAKEOVER' [-Wunused-variable]
+   96 |  uint8_t REDUNDANT_TAKEOVER[8] = {125, 4, 1, 0, 0, 0, 0, 0};
+      |          ^~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "REDUNDANT.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\REDUNDANT\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="REDUNDANT.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: REDUNDANT.elf
+ 
+arm-none-eabi-size   REDUNDANT.elf 
+arm-none-eabi-objdump -h -S  REDUNDANT.elf  > "REDUNDANT.list"
+   text	   data	    bss	    dec	    hex	filename
+   7968	     24	   1720	   9712	   25f0	REDUNDANT.elf
+Finished building: default.size.stdout
+ 
+Finished building: REDUNDANT.list
+ 
+09:52:28 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-size   REDUNDANT.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7968	     24	   1720	   9712	   25f0	REDUNDANT.elf
+Finished building: default.size.stdout
+ 
+09:53:17 **** Incremental Build of configuration Debug for project REDUNDANT ****
+make -j16 all 
+arm-none-eabi-size   REDUNDANT.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7968	     24	   1720	   9712	   25f0	REDUNDANT.elf
+Finished building: default.size.stdout
+ 
