@@ -999,3 +999,33 @@ java.lang.Exception: Invalid thread id: 1
 
 !ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2023-04-21 09:46:39.978
 !MESSAGE Existing sessions are:
+!SESSION 2023-04-21 11:35:55.893 -----------------------------------------------
+eclipse.buildId=Version 1.10.1
+java.version=11.0.14.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_ID
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-04-21 11:36:01.765
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-04-21 11:36:01.833
+!MESSAGE Log4j initialized with config file E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-04-21 11:36:06.933
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2023-04-21 12:16:01.597 -----------------------------------------------
+eclipse.buildId=Version 1.10.1
+java.version=11.0.14.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_ID
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-04-21 12:16:05.480
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-04-21 12:16:05.528
+!MESSAGE Log4j initialized with config file E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-04-21 12:16:12.098
+!MESSAGE Started RMI Server, listening on port 41337

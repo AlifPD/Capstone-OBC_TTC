@@ -48,11 +48,9 @@ char strReceived[128] = "";
 
 uint8_t ADDRESS_MAIN = 0x90;
 uint8_t ADDRESS_REDUNDANT = 0x92;
-uint8_t ADDRESS_TTC = 94;
 
 uint8_t buffer[8]= {0};
 uint8_t REDUNDANT_TAKEOVER[8] = {125, 4, 1, 0, 0, 0, 0, 0};
-uint8_t TTC_READTEMP[8] = {125, 3, 3, 0, 0, 0, 0, 0};
 
 /* USER CODE END PV */
 
@@ -123,26 +121,19 @@ int main(void)
 
   /* USER CODE END 2 */
 
-  /* Infinite loop *
+  /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	serialPrint("Sending Data to Redundant ... ");
+	serialPrint("Test Sending Data via I2C ... ");
 	if(HAL_I2C_Master_Transmit(&hi2c1, ADDRESS_REDUNDANT, REDUNDANT_TAKEOVER, sizeof(REDUNDANT_TAKEOVER), 5000) == HAL_OK){
 		serialPrint("Sent Successfully\r\n");
 	} else {
 		serialPrint("Sent Failed\r\n");
 	}
-
-	serialPrint("Sending Data to TTC ... ");
-		if(HAL_I2C_Master_Transmit(&hi2c1, ADDRESS_TTC<<1, TTC_READTEMP, sizeof(TTC_READTEMP), 5000) == HAL_OK){
-			serialPrint("Sent Successfully\r\n");
-		} else {
-			serialPrint("Sent Failed\r\n");
-		}
   }
   /* USER CODE END 3 */
 }
