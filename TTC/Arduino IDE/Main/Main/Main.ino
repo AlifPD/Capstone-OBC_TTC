@@ -1,11 +1,89 @@
+#include <RH_RF24.h>
+#include <RHSoftwareSPI.h>
+
+#define Max_Packet_Size 128
+#define rf_receive PA12
+#define rf_transmit PB3
+#define power_hpa PA1
+
+RHSoftwareSPI spi2;
+
+char message[Max_Packet_Size]; // Test Message
+char *message_ptr = &message[Max_Packet_Size]; // Pointer for variable "message"
+
+uint8_t buf[Max_Packet_Size];
+uint8_t bufLen = sizeof(buf);
+
+static int counter; // Variable to count number of transmitted data
+static int invalids;  // Variable to count number of failed received data
+
+RH_RF24 rf4463_TX(PA4, PB1, PB0); // Initialize RF4463 Object
+RH_RF24 rf4463_RX(PB12, PA11, PA8, spi2);  // Initialize RF4463 Object
+
+
 void setup() {
-  // put your setup code here, to run once:
   SystemClock_Config();
+  spi2.setPins(PB14, PB15, PB13);
+  Serial.begin(115200);
+
+  setupPinMode();
+  
+  while (!rf4463_TX.init())
+    Serial.println("Init TX Module Failed");
+  Serial.println("Init TX Module Success");  
+  rf4463_TX.setTxPower(0x7F);
+
+  while (!rf4463_RX.init())
+    Serial.println("Init RX Module Failed");
+  Serial.println("Init RX Module Success");  
+  rf4463_RX.setTxPower(0x7F);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  Serial.println("Waiting Data from User Input ...");
+  while (Serial.available() > 0) {}
 
+  int userInput = Serial.parseInt();
+
+  switch(userInput){
+    case 1 :  setupTransmit();
+              while(1){
+                sprintf(message, "TTC Board Test, Message number: %d", counter+1);
+                Serial.print(F("Sending Data..."));
+                Serial.println(message);
+                
+                if(rf4463_TX.send((uint8_t*)message, sizeof(message))){
+                  counter++;
+                }else{
+                  Serial.println(F("Transmit Failed"));
+                }
+
+                Serial.print(F("Totals : "));
+                Serial.print(counter);
+                Serial.println(" Data");
+                Serial.println("+++++++");
+              }
+              break;
+    case 2 :  setupReceive();
+              while(1){
+                if (rf4463_RX.recv(buf, &bufLen)) {
+                  Serial.print("Tries : ");
+                  Serial.print(counter);
+                  Serial.print(" --> Received Message: ");
+                  Serial.println((char*)buf);
+                } else {
+                  Serial.print("Tries : ");
+                  Serial.print(counter);
+                  Serial.println(" --> recv failed");
+                  invalids++;
+                }
+                counter++;
+                delay(500);
+              }
+              break;
+    default : Serial.print("Input Invalid");
+              Serial.println(userInput);
+  }  
 }
 
 void SystemClock_Config(void)
@@ -40,4 +118,22 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+void setupTransmit(){
+  digitalWrite(rf_receive, LOW);
+  digitalWrite(rf_transmit, HIGH);
+  digitalWrite(power_hpa, HIGH);
+}
+
+void setupReceive(){
+  digitalWrite(rf_receive, HIGH);
+  digitalWrite(rf_transmit, LOW);
+  digitalWrite(power_hpa, LOW);
+}
+
+void setupPinMode(){
+  pinMode(rf_receive, OUTPUT);
+  pinMode(rf_transmit, OUTPUT);
+  pinMode(power_hpa, OUTPUT);
 }
