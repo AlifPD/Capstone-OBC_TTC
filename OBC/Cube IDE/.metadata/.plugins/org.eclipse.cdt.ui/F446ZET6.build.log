@@ -1,10 +1,10 @@
-14:56:24 **** Incremental Build of configuration Debug for project F446ZET6 ****
+21:16:26 **** Incremental Build of configuration Debug for project F446ZET6 ****
 make -j16 all 
 arm-none-eabi-size   F446ZET6.elf 
    text	   data	    bss	    dec	    hex	filename
-  11448	    120	   1656	  13224	   33a8	F446ZET6.elf
+  28096	     44	  11644	  39784	   9b68	F446ZET6.elf
 Finished building: default.size.stdout
  
 
-14:56:24 Build Finished. 0 errors, 0 warnings. (took 249ms)
+21:16:26 Build Finished. 0 errors, 0 warnings. (took 250ms)
 

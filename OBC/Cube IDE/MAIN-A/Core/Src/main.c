@@ -82,7 +82,7 @@ void serialPrint(char *string){
 
 void blink(){
 	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
-	HAL_Delay(1000);
+	HAL_Delay(5000);
 
 	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 	HAL_Delay(1000);
@@ -130,19 +130,20 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	serialPrint("Sending Data to Redundant ... ");
-	if(HAL_I2C_Master_Transmit(&hi2c1, ADDRESS_REDUNDANT, REDUNDANT_TAKEOVER, sizeof(REDUNDANT_TAKEOVER), 5000) == HAL_OK){
-		serialPrint("Sent Successfully\r\n");
-	} else {
-		serialPrint("Sent Failed\r\n");
-	}
-
-	serialPrint("Sending Data to TTC ... ");
-		if(HAL_I2C_Master_Transmit(&hi2c1, ADDRESS_TTC<<1, TTC_READTEMP, sizeof(TTC_READTEMP), 5000) == HAL_OK){
-			serialPrint("Sent Successfully\r\n");
-		} else {
-			serialPrint("Sent Failed\r\n");
-		}
+	  blink();
+//	serialPrint("Sending Data to Redundant ... ");
+//	if(HAL_I2C_Master_Transmit(&hi2c1, ADDRESS_REDUNDANT, REDUNDANT_TAKEOVER, sizeof(REDUNDANT_TAKEOVER), 5000) == HAL_OK){
+//		serialPrint("Sent Successfully\r\n");
+//	} else {
+//		serialPrint("Sent Failed\r\n");
+//	}
+//
+//	serialPrint("Sending Data to TTC ... ");
+//		if(HAL_I2C_Master_Transmit(&hi2c1, ADDRESS_TTC<<1, TTC_READTEMP, sizeof(TTC_READTEMP), 5000) == HAL_OK){
+//			serialPrint("Sent Successfully\r\n");
+//		} else {
+//			serialPrint("Sent Failed\r\n");
+//		}
   }
   /* USER CODE END 3 */
 }

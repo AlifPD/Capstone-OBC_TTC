@@ -13,6 +13,9 @@ char *message_ptr = &message[Max_Packet_Size]; // Pointer for variable "message"
 
 uint8_t buf[Max_Packet_Size];
 uint8_t bufLen = sizeof(buf);
+uint8_t userInput;
+userInput = 1; // TX
+// userInput = 2; // RX
 
 static int counter; // Variable to count number of transmitted data
 static int invalids;  // Variable to count number of failed received data
@@ -43,7 +46,7 @@ void loop() {
   Serial.println("Waiting Data from User Input ...");
   while (Serial.available() > 0) {}
 
-  int userInput = Serial.parseInt();
+  // userInput = Serial.parseInt();
 
   switch(userInput){
     case 1 :  setupTransmit();
