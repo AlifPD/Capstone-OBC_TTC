@@ -10,12 +10,14 @@ RHSoftwareSPI spi2;
 
 char message[Max_Packet_Size]; // Test Message
 char *message_ptr = &message[Max_Packet_Size]; // Pointer for variable "message"
+uint8_t lastRssi;
 
 uint8_t buf[Max_Packet_Size];
 uint8_t bufLen = sizeof(buf);
-uint8_t userInput;
-userInput = 1; // TX
-// userInput = 2; // RX
+
+// uint8_t userInput;
+uint8_t userInput = 1; // TX
+// uint8_t userInput = 2; // RX
 
 static int counter; // Variable to count number of transmitted data
 static int invalids;  // Variable to count number of failed received data
@@ -44,8 +46,8 @@ void setup() {
 
 void loop() {
   Serial.println("Waiting Data from User Input ...");
-  while (Serial.available() > 0) {}
 
+  // while (Serial.available() > 0) {}
   // userInput = Serial.parseInt();
 
   switch(userInput){
@@ -65,6 +67,7 @@ void loop() {
                 Serial.print(counter);
                 Serial.println(" Data");
                 Serial.println("+++++++");
+                delay(500);
               }
               break;
     case 2 :  setupReceive();
@@ -73,7 +76,11 @@ void loop() {
                   Serial.print("Tries : ");
                   Serial.print(counter);
                   Serial.print(" --> Received Message: ");
-                  Serial.println((char*)buf);
+                  Serial.print((char*)buf);
+
+                  (uint8_t)rf4463_RX.lastRssi();
+                  Serial.print(" Rssi: ");
+                  Serial.println(lastRssi);
                 } else {
                   Serial.print("Tries : ");
                   Serial.print(counter);
@@ -81,7 +88,7 @@ void loop() {
                   invalids++;
                 }
                 counter++;
-                delay(500);
+                delay(100);
               }
               break;
     default : Serial.print("Input Invalid");
