@@ -16,8 +16,8 @@ uint8_t buf[Max_Packet_Size];
 uint8_t bufLen = sizeof(buf);
 
 // uint8_t userInput;
-uint8_t userInput = 1; // TX
-// uint8_t userInput = 2; // RX
+// uint8_t userInput = 1; // TX
+uint8_t userInput = 2; // RX
 
 static int counter; // Variable to count number of transmitted data
 static int invalids;  // Variable to count number of failed received data
