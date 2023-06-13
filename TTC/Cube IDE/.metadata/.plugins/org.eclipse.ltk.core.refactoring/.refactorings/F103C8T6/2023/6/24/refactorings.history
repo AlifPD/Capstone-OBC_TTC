@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;F103C8T6/Core/Inc/radio_config_Si4463_2gfsk4_8.h&apos; to &apos;radio_config_Si4463.h&apos;" description="Rename resource &apos;radio_config_Si4463_2gfsk4_8.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Inc/radio_config_Si4463_2gfsk4_8.h" name="radio_config_Si4463.h" stamp="1686640158769" updateReferences="true"/>
+</session>
