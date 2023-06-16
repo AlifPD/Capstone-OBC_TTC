@@ -1,10 +1,10 @@
-13:55:38 **** Incremental Build of configuration Debug for project F103C8T6 ****
+17:27:59 **** Incremental Build of configuration Debug for project F103C8T6 ****
 make -j16 all 
 arm-none-eabi-size   F103C8T6.elf 
    text	   data	    bss	    dec	    hex	filename
-  16212	     20	   1724	  17956	   4624	F103C8T6.elf
+  19608	     20	   1836	  21464	   53d8	F103C8T6.elf
 Finished building: default.size.stdout
  
 
-13:55:39 Build Finished. 0 errors, 0 warnings. (took 227ms)
+17:27:59 Build Finished. 0 errors, 0 warnings. (took 239ms)
 

@@ -1,0 +1,17 @@
+16:22:52 **** Incremental Build of configuration Debug for project F103C8T6_2 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F103C8T6_2.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F103C8T6_2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103C8T6_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F103C8T6_2.elf
+ 
+arm-none-eabi-size   F103C8T6_2.elf 
+arm-none-eabi-objdump -h -S  F103C8T6_2.elf  > "F103C8T6_2.list"
+   text	   data	    bss	    dec	    hex	filename
+  10604	   4128	   5872	  20604	   507c	F103C8T6_2.elf
+Finished building: default.size.stdout
+ 
+Finished building: F103C8T6_2.list
+ 
+
+16:22:53 Build Finished. 0 errors, 0 warnings. (took 629ms)
+
