@@ -131,12 +131,12 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	  blink();
-//	serialPrint("Sending Data to Redundant ... ");
-//	if(HAL_I2C_Master_Transmit(&hi2c1, ADDRESS_REDUNDANT, REDUNDANT_TAKEOVER, sizeof(REDUNDANT_TAKEOVER), 5000) == HAL_OK){
-//		serialPrint("Sent Successfully\r\n");
-//	} else {
-//		serialPrint("Sent Failed\r\n");
-//	}
+	serialPrint("Sending Data to Redundant ... ");
+	if(HAL_I2C_Master_Transmit(&hi2c1, ADDRESS_REDUNDANT, REDUNDANT_TAKEOVER, sizeof(REDUNDANT_TAKEOVER), 5000) == HAL_OK){
+		serialPrint("Sent Successfully\r\n");
+	} else {
+		serialPrint("Sent Failed\r\n");
+	}
 //
 //	serialPrint("Sending Data to TTC ... ");
 //		if(HAL_I2C_Master_Transmit(&hi2c1, ADDRESS_TTC<<1, TTC_READTEMP, sizeof(TTC_READTEMP), 5000) == HAL_OK){

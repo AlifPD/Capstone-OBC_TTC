@@ -730,3 +730,14 @@
 2023-06-13 14:23:23,742 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 0mS.
 2023-06-13 14:23:54,642 [INFO] Gpio:272 - dependency for GPIO [SPI1, SYS, USART1]
 2023-06-13 14:32:04,720 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-06-20 22:20:53,525 [INFO] Activator:177 - 
+
+
+2023-06-20 22:20:53,525 [INFO] Activator:178 - !SESSION log4j initialized
+2023-06-20 22:20:59,757 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Jun 20, 2023 10:20:59 PM org.glassfish.grizzly.http.server.NetworkListener start
+2023-06-20 22:20:59,772 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] INFO: Started listener bound to [localhost:1594]
+2023-06-20 22:20:59,772 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-06-20 22:20:59,772 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Jun 20, 2023 10:20:59 PM org.glassfish.grizzly.http.server.HttpServer start
+2023-06-20 22:20:59,772 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] INFO: [HttpServer] Started.
+2023-06-20 22:20:59,772 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-06-20 22:25:42,531 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
