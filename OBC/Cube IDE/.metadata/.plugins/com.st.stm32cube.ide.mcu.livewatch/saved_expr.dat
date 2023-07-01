@@ -2,3 +2,6 @@ initRes
 w25qxx
 dummy3
 buffer3
+i2cRxBuf
+resTx
+resRx

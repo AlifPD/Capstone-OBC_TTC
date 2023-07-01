@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "LM35.h"
+#include "string.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -39,14 +39,16 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-ADC_HandleTypeDef hadc1;
-
 I2C_HandleTypeDef hi2c1;
 
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
+uint8_t ADDRESS_MAIN = 90;
+uint8_t ADDRESS_REDUNDANT = 92;
+uint8_t ADDRESS_TTC = 94<<1;
 
+unsigned char i2cRxBuf[50];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -54,33 +56,27 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_I2C1_Init(void);
-static void MX_ADC1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t rxData[1];
-
 void serialPrint(char *string){
 	uint8_t len = strlen(string);
-	HAL_UART_Transmit(&huart1, (uint8_t *)string, len, 10000);
+	HAL_UART_Transmit(&huart1, (uint8_t *)string, len, 2000);
 }
 
-void blink(){
+void blink(int delayOn, int delayOff){
+	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
-	serialPrint(" LED ON ... ");
-	HAL_Delay(1000);
+	serialPrint("LED OFF\n\r");
+	HAL_Delay(delayOn);
 
 	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
-	serialPrint("LED OFF\r\n");
-	HAL_Delay(1000);
+	serialPrint("LED ON\n\r");
+	HAL_Delay(delayOff);
 }
-
-//void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
-//	HAL_UART_Receive_IT(&huart1, &rxData, 1);
-//}
 /* USER CODE END 0 */
 
 /**
@@ -90,7 +86,7 @@ void blink(){
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	float Temp = 0;
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -113,11 +109,8 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   MX_I2C1_Init();
-  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
-//  HAL_UART_Receive_IT(&huart1, &rxData, 1);
-//  HAL_I2C_Slave_Receive_IT(&hi2c1, rxData, 1);
-  LM35_Init(0);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -127,29 +120,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-//	  serialPrint("Sleep Mode ON ... ");
-//	  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
-////	  serialPrint("LED ON\r\n");
-//	  HAL_Delay(2000);
-//
-//	  HAL_SuspendTick();
-//	  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
-//
-//	  HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
-//
-//	  HAL_ResumeTick();
-//	  serialPrint("Sleep Mode OFF ...\r\n");
-//
-//	  for(int i = 0; i<20; i++){
-//		  HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
-//		  HAL_Delay(150);
-//	  }
-
-//	  HAL_ADC_Start(&hadc1);
-//	  HAL_ADC_PollForConversion(&hadc1, 1);
-//	  ADC_RES = HAL_ADC_GetValue(&hadc1);
-
-	  Temp = LM35_Read(0);
+	  HAL_I2C_Master_Receive(&hi2c1, ADDRESS_TTC, i2cRxBuf, 50, HAL_MAX_DELAY);
+	  HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
@@ -162,7 +134,6 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
@@ -191,59 +162,6 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC;
-  PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV4;
-  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
-  {
-    Error_Handler();
-  }
-}
-
-/**
-  * @brief ADC1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_ADC1_Init(void)
-{
-
-  /* USER CODE BEGIN ADC1_Init 0 */
-
-  /* USER CODE END ADC1_Init 0 */
-
-  ADC_ChannelConfTypeDef sConfig = {0};
-
-  /* USER CODE BEGIN ADC1_Init 1 */
-
-  /* USER CODE END ADC1_Init 1 */
-
-  /** Common config
-  */
-  hadc1.Instance = ADC1;
-  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
-  hadc1.Init.ContinuousConvMode = DISABLE;
-  hadc1.Init.DiscontinuousConvMode = DISABLE;
-  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
-  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc1.Init.NbrOfConversion = 1;
-  if (HAL_ADC_Init(&hadc1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /** Configure Regular Channel
-  */
-  sConfig.Channel = ADC_CHANNEL_0;
-  sConfig.Rank = ADC_REGULAR_RANK_1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
-  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN ADC1_Init 2 */
-
-  /* USER CODE END ADC1_Init 2 */
-
 }
 
 /**
@@ -264,7 +182,7 @@ static void MX_I2C1_Init(void)
   hi2c1.Instance = I2C1;
   hi2c1.Init.ClockSpeed = 100000;
   hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
-  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.OwnAddress1 = ADDRESS_MAIN;
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
   hi2c1.Init.OwnAddress2 = 0;
@@ -340,9 +258,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c){
 
-}
 /* USER CODE END 4 */
 
 /**

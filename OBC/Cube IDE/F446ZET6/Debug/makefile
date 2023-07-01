@@ -9,10 +9,6 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include Middlewares/Third_Party/FatFs/src/option/subdir.mk
--include Middlewares/Third_Party/FatFs/src/subdir.mk
--include FATFS/Target/subdir.mk
--include FATFS/App/subdir.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
@@ -56,12 +52,6 @@ default.size.stdout \
 OBJDUMP_LIST += \
 F446ZET6.list \
 
-OBJCOPY_HEX += \
-F446ZET6.hex \
-
-OBJCOPY_BIN += \
-F446ZET6.bin \
-
 
 # All Target
 all: main-build
@@ -85,22 +75,12 @@ F446ZET6.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-F446ZET6.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "F446ZET6.hex"
-	@echo 'Finished building: $@'
-	@echo ' '
-
-F446ZET6.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "F446ZET6.bin"
-	@echo 'Finished building: $@'
-	@echo ' '
-
 # Other Targets
 clean:
-	-$(RM) F446ZET6.bin F446ZET6.elf F446ZET6.hex F446ZET6.list F446ZET6.map default.size.stdout
+	-$(RM) F446ZET6.elf F446ZET6.list F446ZET6.map default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_BIN)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

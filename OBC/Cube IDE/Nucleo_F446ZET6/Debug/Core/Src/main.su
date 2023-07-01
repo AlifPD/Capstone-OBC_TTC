@@ -1,9 +1,7 @@
-../Core/Src/main.c:64:6:serialPrint	24	static
-../Core/Src/main.c:69:6:blink	8	static
-../Core/Src/main.c:82:5:main	24	static
-../Core/Src/main.c:136:6:SystemClock_Config	88	static
-../Core/Src/main.c:183:13:MX_SPI1_Init	8	static
-../Core/Src/main.c:221:13:MX_USART3_UART_Init	8	static
-../Core/Src/main.c:254:13:MX_USB_OTG_FS_PCD_Init	8	static
-../Core/Src/main.c:289:13:MX_GPIO_Init	56	static
-../Core/Src/main.c:353:6:Error_Handler	4	static,ignoring_inline_asm
+../Core/Src/main.c:76:5:main	16	static
+../Core/Src/main.c:124:6:SystemClock_Config	88	static
+../Core/Src/main.c:171:13:MX_I2C1_Init	8	static
+../Core/Src/main.c:205:13:MX_USART3_UART_Init	8	static
+../Core/Src/main.c:238:13:MX_USB_OTG_FS_PCD_Init	8	static
+../Core/Src/main.c:273:13:MX_GPIO_Init	56	static
+../Core/Src/main.c:327:6:Error_Handler	4	static,ignoring_inline_asm

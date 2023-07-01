@@ -18,11 +18,9 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "fatfs.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "fatfs_sd.h"
 #include "string.h"
 /* USER CODE END Includes */
 
@@ -41,86 +39,52 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-IWDG_HandleTypeDef hiwdg;
-
-SPI_HandleTypeDef hspi1;
+I2C_HandleTypeDef hi2c1;
 
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
+uint8_t ADDRESS_MAIN = 90;
+uint8_t ADDRESS_REDUNDANT = 92;
+uint8_t ADDRESS_TTC = 94;
+
+uint8_t i2cRxBuf[8] = {0};
+//unsigned char i2cRxBuf[50];
+uint8_t i2cTxBuf[8] = {1,2,3,4,5,6,7,1};
+
+HAL_StatusTypeDef resTx;
+HAL_StatusTypeDef resRx;
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_I2C1_Init(void);
 static void MX_USART1_UART_Init(void);
-static void MX_IWDG_Init(void);
-static void MX_SPI1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-FATFS fs;
-FIL fil;
-FRESULT fresult;
-char buffer[1024];
-
-UINT br, bw;
-
-
 void serialPrint(char *string){
 	uint8_t len = strlen(string);
-	HAL_UART_Transmit(&huart1, (uint8_t *)string, len, 5000);
+	HAL_UART_Transmit(&huart1, (uint8_t *)string, len, 2000);
 }
 
-void blink(){
+void blink(int delayOn, int delayOff){
+	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+	serialPrint("LED OFF\n\r");
+	HAL_Delay(delayOff);
+
 	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
-	HAL_Delay(1000);
+	serialPrint("LED ON\n\r");
+	HAL_Delay(delayOn);
 
 	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
-	HAL_Delay(1000);
-}
-
-void buffClear(){
-	for(int i = 0; i<1024; i++){
-		buffer[i] = '\0';
-	}
-}
-
-void printFResult(FRESULT res, int proc){
-	switch(proc){
-	case 0 :	if(fresult != FR_OK){
-					serialPrint("Failed to Mount SD Card ...\r\n");
-					break;
-				} else{
-					serialPrint("SD Card Successfully Mounted ...\r\n");
-					break;
-				}break;
-	case 1 :	if(fresult != FR_OK){
-					serialPrint("Failed to Open File ...\r\n");
-					break;
-				} else{
-					serialPrint("File Successfully Opened ...\r\n");
-					break;
-				}break;
-	case 2 :	if(fresult != FR_OK){
-					serialPrint("Failed to Write to File ...\r\n");
-					break;
-				} else{
-					serialPrint("Successfully Writing to File ...\r\n");
-					break;
-				}break;
-	case 3 :	if(fresult != FR_OK){
-					serialPrint("Failed to Close File ...\r\n");
-					break;
-				} else{
-					serialPrint("Successfully Closing File ...\r\n");
-					break;
-				}break;
-	}
+	serialPrint("LED OFF\n\r");
+	HAL_Delay(delayOff);
 }
 /* USER CODE END 0 */
 
@@ -152,37 +116,24 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_I2C1_Init();
   MX_USART1_UART_Init();
-  MX_IWDG_Init();
-  MX_SPI1_Init();
-  MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
-  fresult = f_mount(&fs, "", 0);
-  printFResult(fresult, 0);
-
-  fresult = f_open(&fil, "log.txt", FA_OPEN_ALWAYS|FA_READ|FA_WRITE);
-  printFResult(fresult, 1);
-
-  fresult = f_puts("This is Test number 1\r\n", &fil);
-  printFResult(fresult, 2);
-
-  fresult = f_close(&fil);
-  printFResult(fresult, 3);
-
-  buffClear();
-
-//  fresult = f_open(&fil, "log.txt", FA_READ);
-//  printFResult(fresult, 1);
-//
-//  fresult = f_gets(buffer, fil.fsize, &fil);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1) {
+  while (1)
+  {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  resTx = HAL_I2C_Master_Transmit(&hi2c1, ADDRESS_TTC<<1, i2cTxBuf, 8, 1000);
+	  i2cTxBuf[7]++;
+	  if(resTx == HAL_OK){
+		  resRx = HAL_I2C_Master_Receive(&hi2c1, ADDRESS_TTC<<1, i2cRxBuf, 8, 1000);
+	  }
+	  HAL_Delay(500);
   }
   /* USER CODE END 3 */
 }
@@ -204,10 +155,9 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_LSI;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
   RCC_OscInitStruct.PLL.PLLM = 16;
@@ -236,68 +186,36 @@ void SystemClock_Config(void)
 }
 
 /**
-  * @brief IWDG Initialization Function
+  * @brief I2C1 Initialization Function
   * @param None
   * @retval None
   */
-static void MX_IWDG_Init(void)
+static void MX_I2C1_Init(void)
 {
 
-  /* USER CODE BEGIN IWDG_Init 0 */
+  /* USER CODE BEGIN I2C1_Init 0 */
 
-  /* USER CODE END IWDG_Init 0 */
+  /* USER CODE END I2C1_Init 0 */
 
-  /* USER CODE BEGIN IWDG_Init 1 */
+  /* USER CODE BEGIN I2C1_Init 1 */
 
-  /* USER CODE END IWDG_Init 1 */
-  hiwdg.Instance = IWDG;
-  hiwdg.Init.Prescaler = IWDG_PRESCALER_8;
-  hiwdg.Init.Reload = 79;
-  if (HAL_IWDG_Init(&hiwdg) != HAL_OK)
+  /* USER CODE END I2C1_Init 1 */
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.ClockSpeed = 40000;
+  hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  hi2c1.Init.OwnAddress1 = ADDRESS_MAIN;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN IWDG_Init 2 */
+  /* USER CODE BEGIN I2C1_Init 2 */
 
-  /* USER CODE END IWDG_Init 2 */
-
-}
-
-/**
-  * @brief SPI1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_SPI1_Init(void)
-{
-
-  /* USER CODE BEGIN SPI1_Init 0 */
-
-  /* USER CODE END SPI1_Init 0 */
-
-  /* USER CODE BEGIN SPI1_Init 1 */
-
-  /* USER CODE END SPI1_Init 1 */
-  /* SPI1 parameter configuration*/
-  hspi1.Instance = SPI1;
-  hspi1.Init.Mode = SPI_MODE_MASTER;
-  hspi1.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
-  hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8;
-  hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
-  hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
-  hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
-  hspi1.Init.CRCPolynomial = 10;
-  if (HAL_SPI_Init(&hspi1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN SPI1_Init 2 */
-
-  /* USER CODE END SPI1_Init 2 */
+  /* USER CODE END I2C1_Init 2 */
 
 }
 
@@ -346,12 +264,10 @@ static void MX_GPIO_Init(void)
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(SD_CS_GPIO_Port, SD_CS_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin : LED_Pin */
   GPIO_InitStruct.Pin = LED_Pin;
@@ -359,13 +275,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : SD_CS_Pin */
-  GPIO_InitStruct.Pin = SD_CS_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(SD_CS_GPIO_Port, &GPIO_InitStruct);
 
 }
 

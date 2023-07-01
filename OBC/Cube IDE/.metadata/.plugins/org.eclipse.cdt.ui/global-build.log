@@ -1,151 +1,527 @@
-15:57:00 **** Incremental Build of configuration Debug for project F103C8T6_2 ****
+05:28:58 **** Incremental Build of configuration Debug for project F446ZET6 ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:4199:11: warning: implicit declaration of function 'W25qxx_ReadID'; did you mean 'W25qxx_ReadPage'? [-Wimplicit-function-declaration]
- 4199 |   norID = W25qxx_ReadID();
-      |           ^~~~~~~~~~~~~
-      |           W25qxx_ReadPage
-arm-none-eabi-gcc -o "F103C8T6_2.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F103C8T6_2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103C8T6_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: F103C8T6_2.elf
- 
-arm-none-eabi-size   F103C8T6_2.elf 
-arm-none-eabi-objdump -h -S  F103C8T6_2.elf  > "F103C8T6_2.list"
-   text	   data	    bss	    dec	    hex	filename
-  10580	     28	   1788	  12396	   306c	F103C8T6_2.elf
-Finished building: default.size.stdout
- 
-Finished building: F103C8T6_2.list
- 
-15:58:58 **** Incremental Build of configuration Debug for project F103C8T6_2 ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "F103C8T6_2.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F103C8T6_2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103C8T6_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: F103C8T6_2.elf
- 
-arm-none-eabi-size   F103C8T6_2.elf 
-arm-none-eabi-objdump -h -S  F103C8T6_2.elf  > "F103C8T6_2.list"
-   text	   data	    bss	    dec	    hex	filename
-  10568	   4116	   5868	  20552	   5048	F103C8T6_2.elf
-Finished building: default.size.stdout
- 
-Finished building: F103C8T6_2.list
- 
-15:59:53 **** Incremental Build of configuration Debug for project F103C8T6_2 ****
-make -j16 all 
-arm-none-eabi-size   F103C8T6_2.elf 
-   text	   data	    bss	    dec	    hex	filename
-  10568	   4116	   5868	  20552	   5048	F103C8T6_2.elf
-Finished building: default.size.stdout
- 
-16:05:55 **** Incremental Build of configuration Debug for project F103C8T6_2 ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "F103C8T6_2.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F103C8T6_2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103C8T6_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: F103C8T6_2.elf
- 
-arm-none-eabi-size   F103C8T6_2.elf 
-arm-none-eabi-objdump -h -S  F103C8T6_2.elf  > "F103C8T6_2.list"
-   text	   data	    bss	    dec	    hex	filename
-  10568	   4116	   5868	  20552	   5048	F103C8T6_2.elf
-Finished building: default.size.stdout
- 
-Finished building: F103C8T6_2.list
- 
-16:12:26 **** Incremental Build of configuration Debug for project F103C8T6_2 ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "F103C8T6_2.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F103C8T6_2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103C8T6_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-e:\programs\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\bin\ld.exe: F103C8T6_2.elf section `.bss' will not fit in region `RAM'
-e:\programs\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\bin\ld.exe: region `RAM' overflowed by 5880 bytes
-collect2.exe: error: ld returned 1 exit status
-make: *** [makefile:64: F103C8T6_2.elf] Error 1
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:54:1: error: unknown type name 'Boolean'
+   54 | Boolean i2cCheck = false;
+      | ^~~~~~~
+../Core/Src/main.c:54:20: error: 'false' undeclared here (not in a function)
+   54 | Boolean i2cCheck = false;
+      |                    ^~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
 "make -j16 all" terminated with exit code 2. Build might be incomplete.
-16:12:57 **** Incremental Build of configuration Debug for project F103C8T6_2 ****
+05:29:50 **** Incremental Build of configuration Debug for project F446ZET6 ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "F103C8T6_2.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F103C8T6_2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103C8T6_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: F103C8T6_2.elf
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
  
-arm-none-eabi-size   F103C8T6_2.elf 
-arm-none-eabi-objdump -h -S  F103C8T6_2.elf  > "F103C8T6_2.list"
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
    text	   data	    bss	    dec	    hex	filename
-  10608	   8212	   9964	  28784	   7070	F103C8T6_2.elf
+  11208	     24	   1776	  13008	   32d0	F446ZET6.elf
 Finished building: default.size.stdout
  
-Finished building: F103C8T6_2.list
+Finished building: F446ZET6.list
  
-16:13:45 **** Incremental Build of configuration Debug for project F103C8T6_2 ****
+05:30:40 **** Incremental Build of configuration Debug for project F446ZET6 ****
 make -j16 all 
-arm-none-eabi-size   F103C8T6_2.elf 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
    text	   data	    bss	    dec	    hex	filename
-  10608	   8212	   9964	  28784	   7070	F103C8T6_2.elf
+  11220	     24	   1776	  13020	   32dc	F446ZET6.elf
 Finished building: default.size.stdout
  
-16:15:50 **** Incremental Build of configuration Debug for project F103C8T6_2 ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "F103C8T6_2.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F103C8T6_2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103C8T6_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: F103C8T6_2.elf
+Finished building: F446ZET6.list
  
-arm-none-eabi-size   F103C8T6_2.elf 
-arm-none-eabi-objdump -h -S  F103C8T6_2.elf  > "F103C8T6_2.list"
+05:32:07 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
    text	   data	    bss	    dec	    hex	filename
-  10608	   8212	   9964	  28784	   7070	F103C8T6_2.elf
+  11220	     24	   1776	  13020	   32dc	F446ZET6.elf
 Finished building: default.size.stdout
  
-Finished building: F103C8T6_2.list
- 
-16:18:44 **** Incremental Build of configuration Debug for project F103C8T6_2 ****
+05:33:31 **** Incremental Build of configuration Debug for project F446ZET6 ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "F103C8T6_2.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F103C8T6_2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103C8T6_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: F103C8T6_2.elf
- 
-arm-none-eabi-size   F103C8T6_2.elf 
-arm-none-eabi-objdump -h -S  F103C8T6_2.elf  > "F103C8T6_2.list"
+arm-none-eabi-size   F446ZET6.elf 
    text	   data	    bss	    dec	    hex	filename
-  10568	   4116	   5868	  20552	   5048	F103C8T6_2.elf
+  11220	     24	   1776	  13020	   32dc	F446ZET6.elf
 Finished building: default.size.stdout
  
-Finished building: F103C8T6_2.list
- 
-16:22:26 **** Incremental Build of configuration Debug for project F103C8T6_2 ****
+05:35:29 **** Incremental Build of configuration Debug for project F446ZET6 ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "F103C8T6_2.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F103C8T6_2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103C8T6_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: F103C8T6_2.elf
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
  
-arm-none-eabi-size   F103C8T6_2.elf 
-arm-none-eabi-objdump -h -S  F103C8T6_2.elf  > "F103C8T6_2.list"
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
    text	   data	    bss	    dec	    hex	filename
-  10604	   4128	   5872	  20604	   507c	F103C8T6_2.elf
+  11208	     24	   1776	  13008	   32d0	F446ZET6.elf
 Finished building: default.size.stdout
  
-Finished building: F103C8T6_2.list
+Finished building: F446ZET6.list
  
-16:22:52 **** Incremental Build of configuration Debug for project F103C8T6_2 ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "F103C8T6_2.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F103C8T6_2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103C8T6_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: F103C8T6_2.elf
- 
-arm-none-eabi-size   F103C8T6_2.elf 
-arm-none-eabi-objdump -h -S  F103C8T6_2.elf  > "F103C8T6_2.list"
-   text	   data	    bss	    dec	    hex	filename
-  10604	   4128	   5872	  20604	   507c	F103C8T6_2.elf
-Finished building: default.size.stdout
- 
-Finished building: F103C8T6_2.list
- 
-16:36:42 **** Build of configuration Debug for project F103C8T6 ****
+05:37:03 **** Incremental Build of configuration Debug for project F103C8T6 ****
 make -j16 all 
 arm-none-eabi-size   F103C8T6.elf 
    text	   data	    bss	    dec	    hex	filename
-  19608	     20	   1836	  21464	   53d8	F103C8T6.elf
+   6072	     20	   1644	   7736	   1e38	F103C8T6.elf
 Finished building: default.size.stdout
  
-09:29:24 **** Build of configuration Debug for project MAIN-A ****
+05:37:54 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11208	     24	   1776	  13008	   32d0	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+05:38:30 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11208	     24	   1776	  13008	   32d0	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+05:39:20 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11208	     24	   1776	  13008	   32d0	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+05:39:57 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11208	     24	   1776	  13008	   32d0	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+05:41:01 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11208	     24	   1776	  13008	   32d0	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+05:43:30 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  11200	     24	   1776	  13000	   32c8	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+05:45:45 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  11228	     24	   1776	  13028	   32e4	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+11:08:26 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  11200	     24	   1776	  13000	   32c8	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+11:08:54 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11200	     24	   1776	  13000	   32c8	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+11:10:13 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11200	     24	   1776	  13000	   32c8	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+11:10:49 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11200	     24	   1776	  13000	   32c8	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+11:13:04 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11200	     24	   1776	  13000	   32c8	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+11:16:00 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11200	     24	   1776	  13000	   32c8	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+11:17:07 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11200	     24	   1776	  13000	   32c8	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+11:18:04 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11200	     24	   1776	  13000	   32c8	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+11:22:16 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  11208	     24	   1776	  13008	   32d0	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+11:22:57 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11208	     24	   1776	  13008	   32d0	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+11:23:50 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11208	     24	   1776	  13008	   32d0	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+11:24:58 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  11208	     24	   1776	  13008	   32d0	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+11:25:48 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11208	     24	   1776	  13008	   32d0	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+11:26:05 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11208	     24	   1776	  13008	   32d0	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+11:42:44 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11208	     24	   1776	  13008	   32d0	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+11:42:55 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11208	     24	   1776	  13008	   32d0	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+11:43:10 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11208	     24	   1776	  13008	   32d0	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+11:45:05 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  11208	     24	   1728	  12960	   32a0	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+11:45:41 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11208	     24	   1728	  12960	   32a0	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+11:46:42 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  11200	     24	   1728	  12952	   3298	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+11:48:10 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11200	     24	   1728	  12952	   3298	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+11:49:29 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11200	     24	   1728	  12952	   3298	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+11:50:17 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:124:34: warning: passing argument 2 of 'HAL_I2C_Slave_Receive' makes pointer from integer without a cast [-Wint-conversion]
+  124 |    HAL_I2C_Slave_Receive(&hi2c1, ADDRESS_REDUNDANT, i2cRxBuf, 1, 100);
+      |                                  ^~~~~~~~~~~~~~~~~
+      |                                  |
+      |                                  uint8_t {aka unsigned char}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:359,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:569:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
+  569 | HAL_StatusTypeDef HAL_I2C_Slave_Receive(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                  ~~~~~~~~~^~~~~
+../Core/Src/main.c:124:53: warning: passing argument 3 of 'HAL_I2C_Slave_Receive' makes integer from pointer without a cast [-Wint-conversion]
+  124 |    HAL_I2C_Slave_Receive(&hi2c1, ADDRESS_REDUNDANT, i2cRxBuf, 1, 100);
+      |                                                     ^~~~~~~~
+      |                                                     |
+      |                                                     unsigned char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:359,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:569:91: note: expected 'uint16_t' {aka 'short unsigned int'} but argument is of type 'unsigned char *'
+  569 | HAL_StatusTypeDef HAL_I2C_Slave_Receive(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                  ~~~~~~~~~^~~~
+../Core/Src/main.c:124:4: error: too many arguments to function 'HAL_I2C_Slave_Receive'
+  124 |    HAL_I2C_Slave_Receive(&hi2c1, ADDRESS_REDUNDANT, i2cRxBuf, 1, 100);
+      |    ^~~~~~~~~~~~~~~~~~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:359,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:569:19: note: declared here
+  569 | HAL_StatusTypeDef HAL_I2C_Slave_Receive(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                   ^~~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+11:51:21 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  10172	     24	   1728	  11924	   2e94	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+11:51:37 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10172	     24	   1728	  11924	   2e94	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+11:52:59 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10172	     24	   1728	  11924	   2e94	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+12:05:55 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  11200	     24	   1776	  13000	   32c8	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+12:07:24 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  11120	     24	   1776	  12920	   3278	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+12:09:59 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11120	     24	   1776	  12920	   3278	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+12:11:14 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  11208	     24	   1776	  13008	   32d0	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+12:11:28 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11208	     24	   1776	  13008	   32d0	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+12:12:34 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  11200	     24	   1776	  13000	   32c8	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+12:23:22 **** Incremental Build of configuration Debug for project F103C8T6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:123:35: warning: passing argument 2 of 'HAL_I2C_Slave_Transmit' makes pointer from integer without a cast [-Wint-conversion]
+  123 |    HAL_I2C_Slave_Transmit(&hi2c1, i2cTxBuf, sizeof(i2cTxBuf), 100);
+      |                                   ^~~~~~~~
+      |                                   |
+      |                                   uint8_t {aka unsigned char}
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:298,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h:565:76: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
+  565 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                   ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "F103C8T6.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F103C8T6\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103C8T6.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F103C8T6.elf
+ 
+arm-none-eabi-size   F103C8T6.elf 
+arm-none-eabi-objdump -h -S  F103C8T6.elf  > "F103C8T6.list"
+   text	   data	    bss	    dec	    hex	filename
+   7260	     24	   1728	   9012	   2334	F103C8T6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F103C8T6.list
+ 
+12:24:12 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  11200	     24	   1728	  12952	   3298	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+12:32:24 **** Incremental Build of configuration Debug for project F446ZET6 ****
 make -j16 all 
 arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
 arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o"
@@ -165,6 +541,72 @@ arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c" -
 arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o"
 arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o"
 arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/system_stm32f4xx.d" -MT"Core/Src/system_stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32f4xx.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  11196	     24	   1728	  12948	   3294	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+12:33:03 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  11196	     24	   1776	  12996	   32c4	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+12:33:52 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11196	     24	   1776	  12996	   32c4	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+12:33:57 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11196	     24	   1776	  12996	   32c4	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+18:45:41 **** Build of configuration Debug for project Nucleo_F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.o"
 arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Core/Startup/startup_stm32f446zetx.d" -MT"Core/Startup/startup_stm32f446zetx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Startup/startup_stm32f446zetx.o" "../Core/Startup/startup_stm32f446zetx.s"
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
@@ -172,123 +614,525 @@ arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -D
 arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
 arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
 arm-none-eabi-gcc "../Core/Src/system_stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/system_stm32f4xx.d" -MT"Core/Src/system_stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32f4xx.o"
-../Core/Src/main.c: In function 'serialPrintBuffer':
-../Core/Src/main.c:72:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
-   72 |   sprintf(&strReceived[i], "%d, ", buffer[i]);
-      |   ^~~~~~~
-../Core/Src/main.c:72:3: warning: incompatible implicit declaration of built-in function 'sprintf'
-../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
-   20 | #include "main.h"
-  +++ |+#include <stdio.h>
-   21 | 
-../Core/Src/main.c:74:2: warning: implicit declaration of function 'serialPrint'; did you mean 'serialPrintBuffer'? [-Wimplicit-function-declaration]
-   74 |  serialPrint(strReceived);
-      |  ^~~~~~~~~~~
-      |  serialPrintBuffer
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:78:6: warning: conflicting types for 'serialPrint'
-   78 | void serialPrint(char *string){
-      |      ^~~~~~~~~~~
-../Core/Src/main.c:74:2: note: previous implicit declaration of 'serialPrint' was here
-   74 |  serialPrint(strReceived);
-      |  ^~~~~~~~~~~
-../Core/Src/main.c: In function 'serialPrint':
-../Core/Src/main.c:79:16: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
-   79 |  uint8_t len = strlen(string);
-      |                ^~~~~~
-../Core/Src/main.c:79:16: warning: incompatible implicit declaration of built-in function 'strlen'
-../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
-   20 | #include "main.h"
-  +++ |+#include <string.h>
-   21 | 
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:127:3: warning: "/*" within comment [-Wcomment]
-  127 |   /* USER CODE BEGIN WHILE */
-      |    
-arm-none-eabi-gcc -o "MAIN-A.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\MAIN-A\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MAIN-A.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: MAIN-A.elf
+arm-none-eabi-gcc -o "Nucleo_F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\Nucleo_F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Nucleo_F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Nucleo_F446ZET6.elf
  
-arm-none-eabi-size   MAIN-A.elf 
-arm-none-eabi-objdump -h -S  MAIN-A.elf  > "MAIN-A.list"
+arm-none-eabi-size   Nucleo_F446ZET6.elf 
+arm-none-eabi-objdump -h -S  Nucleo_F446ZET6.elf  > "Nucleo_F446ZET6.list"
    text	   data	    bss	    dec	    hex	filename
-  11380	     32	   1720	  13132	   334c	MAIN-A.elf
+  15776	     24	   3064	  18864	   49b0	Nucleo_F446ZET6.elf
 Finished building: default.size.stdout
  
-Finished building: MAIN-A.list
+Finished building: Nucleo_F446ZET6.list
  
-09:30:28 **** Incremental Build of configuration Debug for project MAIN-A ****
+18:46:08 **** Incremental Build of configuration Debug for project Nucleo_F446ZET6 ****
 make -j16 all 
-arm-none-eabi-size   MAIN-A.elf 
+arm-none-eabi-size   Nucleo_F446ZET6.elf 
    text	   data	    bss	    dec	    hex	filename
-  11380	     32	   1720	  13132	   334c	MAIN-A.elf
+  15776	     24	   3064	  18864	   49b0	Nucleo_F446ZET6.elf
 Finished building: default.size.stdout
  
-09:32:19 **** Build of configuration Debug for project REDUNDANT ****
+18:46:55 **** Incremental Build of configuration Debug for project Nucleo_F446ZET6 ****
 make -j16 all 
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o"
-arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Core/Startup/startup_stm32f103c8tx.d" -MT"Core/Startup/startup_stm32f103c8tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Startup/startup_stm32f103c8tx.o" "../Core/Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-size   Nucleo_F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15776	     24	   3064	  18864	   49b0	Nucleo_F446ZET6.elf
+Finished building: default.size.stdout
+ 
+18:48:31 **** Incremental Build of configuration Debug for project Nucleo_F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Nucleo_F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\Nucleo_F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Nucleo_F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Nucleo_F446ZET6.elf
+ 
+arm-none-eabi-size   Nucleo_F446ZET6.elf 
+arm-none-eabi-objdump -h -S  Nucleo_F446ZET6.elf  > "Nucleo_F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  15776	     24	   3064	  18864	   49b0	Nucleo_F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: Nucleo_F446ZET6.list
+ 
+18:50:02 **** Incremental Build of configuration Debug for project Nucleo_F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   Nucleo_F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15776	     24	   3064	  18864	   49b0	Nucleo_F446ZET6.elf
+Finished building: default.size.stdout
+ 
+18:51:04 **** Incremental Build of configuration Debug for project Nucleo_F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   Nucleo_F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15776	     24	   3064	  18864	   49b0	Nucleo_F446ZET6.elf
+Finished building: default.size.stdout
+ 
+18:52:53 **** Incremental Build of configuration Debug for project Nucleo_F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   Nucleo_F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15776	     24	   3064	  18864	   49b0	Nucleo_F446ZET6.elf
+Finished building: default.size.stdout
+ 
+18:54:08 **** Incremental Build of configuration Debug for project Nucleo_F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   Nucleo_F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15776	     24	   3064	  18864	   49b0	Nucleo_F446ZET6.elf
+Finished building: default.size.stdout
+ 
+18:56:39 **** Incremental Build of configuration Debug for project Nucleo_F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Nucleo_F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\Nucleo_F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Nucleo_F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Nucleo_F446ZET6.elf
+ 
+arm-none-eabi-size   Nucleo_F446ZET6.elf 
+arm-none-eabi-objdump -h -S  Nucleo_F446ZET6.elf  > "Nucleo_F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  15784	     24	   3064	  18872	   49b8	Nucleo_F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: Nucleo_F446ZET6.list
+ 
+18:59:14 **** Incremental Build of configuration Debug for project Nucleo_F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   Nucleo_F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15784	     24	   3064	  18872	   49b8	Nucleo_F446ZET6.elf
+Finished building: default.size.stdout
+ 
+19:01:09 **** Incremental Build of configuration Debug for project Nucleo_F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   Nucleo_F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15784	     24	   3064	  18872	   49b8	Nucleo_F446ZET6.elf
+Finished building: default.size.stdout
+ 
+19:02:06 **** Incremental Build of configuration Debug for project Nucleo_F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   Nucleo_F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15784	     24	   3064	  18872	   49b8	Nucleo_F446ZET6.elf
+Finished building: default.size.stdout
+ 
+14:56:20 **** Build of configuration Debug for project F103C8T6 ****
+make -j16 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
-arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
-arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/syscalls.o"
-arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/sysmem.o"
-../Core/Src/main.c: In function 'serialPrint':
-../Core/Src/main.c:75:17: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
-   75 |   uint8_t len = strlen(string);
-      |                 ^~~~~~
-../Core/Src/main.c:75:17: warning: incompatible implicit declaration of built-in function 'strlen'
-../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
-   20 | #include "main.h"
-  +++ |+#include <string.h>
-   21 | 
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:96:10: warning: unused variable 'REDUNDANT_TAKEOVER' [-Wunused-variable]
-   96 |  uint8_t REDUNDANT_TAKEOVER[8] = {125, 4, 1, 0, 0, 0, 0, 0};
-      |          ^~~~~~~~~~~~~~~~~~
-arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
-arm-none-eabi-gcc -o "REDUNDANT.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\REDUNDANT\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="REDUNDANT.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: REDUNDANT.elf
+arm-none-eabi-gcc -o "F103C8T6.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F103C8T6\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103C8T6.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F103C8T6.elf
  
-arm-none-eabi-size   REDUNDANT.elf 
-arm-none-eabi-objdump -h -S  REDUNDANT.elf  > "REDUNDANT.list"
+arm-none-eabi-size   F103C8T6.elf 
+arm-none-eabi-objdump -h -S  F103C8T6.elf  > "F103C8T6.list"
    text	   data	    bss	    dec	    hex	filename
-   7968	     24	   1720	   9712	   25f0	REDUNDANT.elf
+   8708	     24	   1776	  10508	   290c	F103C8T6.elf
 Finished building: default.size.stdout
  
-Finished building: REDUNDANT.list
+Finished building: F103C8T6.list
  
-09:33:19 **** Incremental Build of configuration Debug for project MAIN-A ****
+14:58:21 **** Incremental Build of configuration Debug for project F103C8T6 ****
 make -j16 all 
-arm-none-eabi-size   MAIN-A.elf 
+arm-none-eabi-size   F103C8T6.elf 
    text	   data	    bss	    dec	    hex	filename
-  11380	     32	   1720	  13132	   334c	MAIN-A.elf
+   8708	     24	   1776	  10508	   290c	F103C8T6.elf
 Finished building: default.size.stdout
  
-09:50:32 **** Incremental Build of configuration Debug for project REDUNDANT ****
+15:00:46 **** Incremental Build of configuration Debug for project F103C8T6 ****
 make -j16 all 
-arm-none-eabi-size   REDUNDANT.elf 
+arm-none-eabi-size   F103C8T6.elf 
    text	   data	    bss	    dec	    hex	filename
-   7968	     24	   1720	   9712	   25f0	REDUNDANT.elf
+   8708	     24	   1776	  10508	   290c	F103C8T6.elf
 Finished building: default.size.stdout
  
-09:51:53 **** Incremental Build of configuration Debug for project REDUNDANT ****
+15:02:24 **** Incremental Build of configuration Debug for project F103C8T6 ****
 make -j16 all 
-arm-none-eabi-size   REDUNDANT.elf 
+arm-none-eabi-size   F103C8T6.elf 
    text	   data	    bss	    dec	    hex	filename
-   7968	     24	   1720	   9712	   25f0	REDUNDANT.elf
+   8708	     24	   1776	  10508	   290c	F103C8T6.elf
 Finished building: default.size.stdout
+ 
+15:05:42 **** Incremental Build of configuration Debug for project F103C8T6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F103C8T6.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F103C8T6\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103C8T6.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F103C8T6.elf
+ 
+arm-none-eabi-size   F103C8T6.elf 
+arm-none-eabi-objdump -h -S  F103C8T6.elf  > "F103C8T6.list"
+   text	   data	    bss	    dec	    hex	filename
+   8708	     24	   1776	  10508	   290c	F103C8T6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F103C8T6.list
+ 
+15:10:13 **** Incremental Build of configuration Debug for project F103C8T6 ****
+make -j16 all 
+arm-none-eabi-size   F103C8T6.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8708	     24	   1776	  10508	   290c	F103C8T6.elf
+Finished building: default.size.stdout
+ 
+15:15:24 **** Incremental Build of configuration Debug for project F103C8T6 ****
+make -j16 all 
+arm-none-eabi-size   F103C8T6.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8708	     24	   1776	  10508	   290c	F103C8T6.elf
+Finished building: default.size.stdout
+ 
+15:17:54 **** Incremental Build of configuration Debug for project F103C8T6 ****
+make -j16 all 
+arm-none-eabi-size   F103C8T6.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8708	     24	   1776	  10508	   290c	F103C8T6.elf
+Finished building: default.size.stdout
+ 
+15:28:51 **** Incremental Build of configuration Debug for project F103C8T6 ****
+make -j16 all 
+arm-none-eabi-size   F103C8T6.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8708	     24	   1776	  10508	   290c	F103C8T6.elf
+Finished building: default.size.stdout
+ 
+16:13:17 **** Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  11216	     24	   1776	  13016	   32d8	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+16:13:43 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11216	     24	   1776	  13016	   32d8	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+16:15:09 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11216	     24	   1776	  13016	   32d8	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+16:16:29 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11216	     24	   1776	  13016	   32d8	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+16:18:04 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  11212	     24	   1776	  13012	   32d4	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+16:23:46 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  12372	     32	   1776	  14180	   3764	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+16:25:18 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  10644	     32	   1720	  12396	   306c	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+16:29:12 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  10648	     32	   1720	  12400	   3070	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+16:30:01 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  12372	     32	   1776	  14180	   3764	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+16:30:47 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  12372	     32	   1776	  14180	   3764	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+16:31:27 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  13080	     32	   1776	  14888	   3a28	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+16:35:09 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  13084	     32	   1776	  14892	   3a2c	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+16:37:11 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13084	     32	   1776	  14892	   3a2c	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+16:39:31 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13084	     32	   1776	  14892	   3a2c	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+16:42:12 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  13108	     32	   1776	  14916	   3a44	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+16:43:35 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  11928	     24	   1776	  13728	   35a0	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+17:00:36 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  12392	     32	   1776	  14200	   3778	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+17:01:25 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  12392	     32	   1776	  14200	   3778	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+17:04:10 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  12392	     32	   1776	  14200	   3778	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+17:06:05 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12392	     32	   1776	  14200	   3778	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+17:07:49 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12392	     32	   1776	  14200	   3778	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+17:09:18 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12392	     32	   1776	  14200	   3778	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+17:11:38 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  11520	     32	   1776	  13328	   3410	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+17:14:15 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11520	     32	   1776	  13328	   3410	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+17:15:40 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11520	     32	   1776	  13328	   3410	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+17:16:20 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  11520	     32	   1776	  13328	   3410	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+17:21:21 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  12392	     32	   1776	  14200	   3778	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+17:22:00 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12392	     32	   1776	  14200	   3778	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+17:28:42 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  12392	     32	   1736	  14160	   3750	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
+ 
+17:31:13 **** Incremental Build of configuration Debug for project F446ZET6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446ZET6.elf
+ 
+arm-none-eabi-size   F446ZET6.elf 
+arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
+   text	   data	    bss	    dec	    hex	filename
+  12404	     32	   1736	  14172	   375c	F446ZET6.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446ZET6.list
  
