@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "string.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,10 +44,12 @@ I2C_HandleTypeDef hi2c1;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-uint8_t ADDRESS_MAIN = 0x90;
-uint8_t ADDRESS_REDUNDANT = 0x92;
+uint8_t ADDRESS_MAIN = 90;
+uint8_t ADDRESS_REDUNDANT = 92;
 
-
+uint8_t i2cTxBuf[8]= {0};
+uint8_t i2cRxBuf[8]= {0};
+uint8_t REDUNDANT_TAKEOVER[8] = {125, 4, 1, 0, 0, 0, 0, 0};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -61,28 +63,24 @@ static void MX_USART1_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-//	char strReceived[128] = "";
+void serialPrint(char *string){
+	uint8_t len = strlen(string);
+	HAL_UART_Transmit(&huart1, (uint8_t *)string, len, 2000);
+}
 
-//	void serialPrintBuffer(){
-//		for(int i = 0; i<sizeof(bufferRedundant); i++){
-//			sprintf(&strReceived[i], "%d, ", bufferRedundant[i]);
-//		}
-//		serialPrint(strReceived);
-//		serialPrint("\r\n");
-//	}
+void blink(int delayOn, int delayOff){
+	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+	serialPrint("LED OFF\n\r");
+	HAL_Delay(delayOff);
 
-	void serialPrint(char *string){
-		uint8_t len = strlen(string);
-		HAL_UART_Transmit(&huart1, (uint8_t *)string, len, 10000);
-	}
+	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+	serialPrint("LED ON\n\r");
+	HAL_Delay(delayOn);
 
-	void blink(){
-		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
-		HAL_Delay(1000);
-
-		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
-		HAL_Delay(1000);
-	}
+	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+	serialPrint("LED OFF\n\r");
+	HAL_Delay(delayOff);
+}
 /* USER CODE END 0 */
 
 /**
@@ -92,8 +90,7 @@ static void MX_USART1_UART_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	uint8_t bufferRedundant[8]= {0};
-	uint8_t REDUNDANT_TAKEOVER[8] = {125, 4, 1, 0, 0, 0, 0, 0};
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -128,7 +125,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	  serialPrint("Test Receiving Data via I2C ... ");
-	  if(HAL_I2C_Slave_Receive(&hi2c1, bufferRedundant, sizeof(bufferRedundant), 5000) == HAL_OK){
+	  if(HAL_I2C_Slave_Receive(&hi2c1, i2cRxBuf, sizeof(i2cRxBuf), 1000) == HAL_OK){
 		  serialPrint("Receive Successfully ... ");
 	  } else {
 		  serialPrint("Receive Failed\r\n");
@@ -154,7 +151,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI_DIV2;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL12;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -166,7 +163,7 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)

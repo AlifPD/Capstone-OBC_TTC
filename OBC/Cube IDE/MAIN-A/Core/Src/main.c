@@ -21,7 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "string.h"
+#include "stdio.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,11 +47,14 @@ UART_HandleTypeDef huart1;
 /* USER CODE BEGIN PV */
 char strReceived[128] = "";
 
-uint8_t ADDRESS_MAIN = 0x90;
-uint8_t ADDRESS_REDUNDANT = 0x92;
+uint8_t ADDRESS_MAIN = 90;
+uint8_t ADDRESS_REDUNDANT = 92;
 uint8_t ADDRESS_TTC = 94;
 
 uint8_t buffer[8]= {0};
+uint8_t i2cTxBuf[8]= {0};
+uint8_t i2cRxBuf[8]= {0};
+
 uint8_t REDUNDANT_TAKEOVER[8] = {125, 4, 1, 0, 0, 0, 0, 0};
 uint8_t TTC_READTEMP[8] = {125, 3, 3, 0, 0, 0, 0, 0};
 
@@ -67,6 +71,11 @@ static void MX_USART1_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void serialPrint(char *string){
+	uint8_t len = strlen(string);
+	HAL_UART_Transmit(&huart1, (uint8_t *)string, len, 2000);
+}
+
 void serialPrintBuffer(){
 	for(int i = 0; i<sizeof(buffer); i++){
 		sprintf(&strReceived[i], "%d, ", buffer[i]);
@@ -75,17 +84,18 @@ void serialPrintBuffer(){
 	serialPrint("\r\n");
 }
 
-void serialPrint(char *string){
-	uint8_t len = strlen(string);
-	HAL_UART_Transmit(&huart1, (uint8_t *)string, len, 10000);
-}
-
-void blink(){
+void blink(int delayOn, int delayOff){
 	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
-	HAL_Delay(5000);
+	serialPrint("LED OFF\n\r");
+	HAL_Delay(delayOff);
 
 	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
-	HAL_Delay(1000);
+	serialPrint("LED ON\n\r");
+	HAL_Delay(delayOn);
+
+	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+	serialPrint("LED OFF\n\r");
+	HAL_Delay(delayOff);
 }
 /* USER CODE END 0 */
 
@@ -123,27 +133,19 @@ int main(void)
 
   /* USER CODE END 2 */
 
-  /* Infinite loop *
+  /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  blink();
 	serialPrint("Sending Data to Redundant ... ");
-	if(HAL_I2C_Master_Transmit(&hi2c1, ADDRESS_REDUNDANT, REDUNDANT_TAKEOVER, sizeof(REDUNDANT_TAKEOVER), 5000) == HAL_OK){
+	if(HAL_I2C_Master_Transmit(&hi2c1, ADDRESS_REDUNDANT, REDUNDANT_TAKEOVER, sizeof(REDUNDANT_TAKEOVER), 1000) == HAL_OK){
 		serialPrint("Sent Successfully\r\n");
 	} else {
 		serialPrint("Sent Failed\r\n");
 	}
-//
-//	serialPrint("Sending Data to TTC ... ");
-//		if(HAL_I2C_Master_Transmit(&hi2c1, ADDRESS_TTC<<1, TTC_READTEMP, sizeof(TTC_READTEMP), 5000) == HAL_OK){
-//			serialPrint("Sent Successfully\r\n");
-//		} else {
-//			serialPrint("Sent Failed\r\n");
-//		}
   }
   /* USER CODE END 3 */
 }
@@ -171,8 +173,8 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
   RCC_OscInitStruct.PLL.PLLM = 8;
-  RCC_OscInitStruct.PLL.PLLN = 50;
-  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+  RCC_OscInitStruct.PLL.PLLN = 192;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV4;
   RCC_OscInitStruct.PLL.PLLQ = 2;
   RCC_OscInitStruct.PLL.PLLR = 2;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
@@ -186,10 +188,10 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_3) != HAL_OK)
   {
     Error_Handler();
   }
@@ -285,6 +287,14 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PC10 PC11 */
+  GPIO_InitStruct.Pin = GPIO_PIN_10|GPIO_PIN_11;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+  GPIO_InitStruct.Alternate = GPIO_AF8_UART4;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
 }
 
