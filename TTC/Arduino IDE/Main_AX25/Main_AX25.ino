@@ -1,14 +1,10 @@
 #include <RH_RF24.h>
 #include <RHSoftwareSPI.h>
-#include <ax25.h>
 
 #define Max_Packet_Size 128
 #define rf_receive PA12
 #define rf_transmit PB3
 #define power_hpa PA1
-
-byte rcvSequence[128];
-uint8_t len = sizeof(rcvSequence);
 
 RHSoftwareSPI spi2;
 
@@ -19,15 +15,16 @@ uint8_t lastRssi;
 uint8_t buf[Max_Packet_Size];
 uint8_t bufLen = sizeof(buf);
 
-// uint8_t userInput;
-// uint8_t userInput = 1; // TX
-uint8_t userInput = 2; // RX
+uint8_t userInput;
+// userInput = 1; // TX
+// userInput = 2; // RX
 
 static int counter; // Variable to count number of transmitted data
 static int invalids;  // Variable to count number of failed received data
 
-AX25 rf4463_TX(PA4, PB1, PB0);
-AX25 rf4463_RX(PB12, PA11, PA8, spi2);
+RH_RF24 rf4463_TX(PA4, PB1, PB0); // Initialize RF4463 Object
+RH_RF24 rf4463_RX(PB12, PA11, PA8, spi2);  // Initialize RF4463 Object
+
 
 void setup() {
   SystemClock_Config();
@@ -35,15 +32,16 @@ void setup() {
   Serial.begin(115200);
 
   setupPinMode();
-
-  while(!rf4463_TX.powerAndInit())
+  
+  while (!rf4463_TX.init())
     Serial.println("Init TX Module Failed");
-  Serial.println("Init TX Module Success"); 
+  Serial.println("Init TX Module Success");  
+  rf4463_TX.setTxPower(0x7F);
 
-  while(!rf4463_RX.powerAndInit())
+  while (!rf4463_RX.init())
     Serial.println("Init RX Module Failed");
-  Serial.println("Init RX Module Success");
-  Serial.println("Hello");
+  Serial.println("Init RX Module Success");  
+  rf4463_RX.setTxPower(0x7F);
 }
 
 void loop() {
@@ -59,30 +57,30 @@ void loop() {
                 Serial.print(F("Sending Data..."));
                 Serial.println(message);
                 
-                rf4463_TX.transmit(message, sizeof(message));
-                counter++;
+                if(rf4463_TX.send((uint8_t*)message, sizeof(message))){
+                  counter++;
+                }else{
+                  Serial.println(F("Transmit Failed"));
+                }
 
                 Serial.print(F("Totals : "));
                 Serial.print(counter);
                 Serial.println(" Data");
                 Serial.println("+++++++");
-                delay(50);
+                delay(500);
               }
               break;
     case 2 :  setupReceive();
               while(1){
-                if (rf4463_RX.receive(rcvSequence, &len)) {
+                if (rf4463_RX.recv(buf, &bufLen)) {
                   Serial.print("Tries : ");
                   Serial.print(counter);
                   Serial.print(" --> Received Message: ");
-                  for(int i = 0; i<256; i++){
-                    Serial.print(rcvSequence[i]);
-                    Serial.print(", ");
-                  }
-                  Serial.println();
-                  rf4463_RX.demod(rcvSequence, 450);
-                  // Serial.println();
-                  // Serial.print((char*)buf);
+                  Serial.print((char*)buf);
+
+                  (uint8_t)rf4463_RX.lastRssi();
+                  Serial.print(" Rssi: ");
+                  Serial.println(lastRssi);
                 } else {
                   Serial.print("Tries : ");
                   Serial.print(counter);
@@ -136,14 +134,12 @@ void setupTransmit(){
   digitalWrite(rf_receive, LOW);
   digitalWrite(rf_transmit, HIGH);
   digitalWrite(power_hpa, HIGH);
-  // rf4463_TX.setTxMode();
 }
 
 void setupReceive(){
   digitalWrite(rf_receive, HIGH);
   digitalWrite(rf_transmit, LOW);
   digitalWrite(power_hpa, LOW);
-  rf4463_RX.setRxMode();
 }
 
 void setupPinMode(){
