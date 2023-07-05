@@ -31683,3 +31683,25 @@ java.util.ConcurrentModificationException
 2023-07-04 14:36:05,968 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 0mS.
 2023-07-04 14:36:05,973 [INFO] ProjectBuilder:2790 - Time for Copy CMSIS : 0mS.
 2023-07-04 14:41:46,390 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-07-05 02:31:06,759 [INFO] Activator:177 - 
+
+
+2023-07-05 02:31:06,761 [INFO] Activator:178 - !SESSION log4j initialized
+2023-07-05 02:31:12,569 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Jul 05, 2023 2:31:12 AM org.glassfish.grizzly.http.server.NetworkListener start
+2023-07-05 02:31:12,571 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] INFO: Started listener bound to [localhost:1598]
+2023-07-05 02:31:12,571 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-07-05 02:31:12,572 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Jul 05, 2023 2:31:12 AM org.glassfish.grizzly.http.server.HttpServer start
+2023-07-05 02:31:12,573 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] INFO: [HttpServer] Started.
+2023-07-05 02:31:12,573 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-07-05 02:33:21,769 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-07-05 02:33:56,904 [INFO] Activator:177 - 
+
+
+2023-07-05 02:33:56,904 [INFO] Activator:178 - !SESSION log4j initialized
+2023-07-05 02:34:02,824 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Jul 05, 2023 2:34:02 AM org.glassfish.grizzly.http.server.NetworkListener start
+2023-07-05 02:34:02,824 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] INFO: Started listener bound to [localhost:1594]
+2023-07-05 02:34:02,824 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-07-05 02:34:02,824 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Jul 05, 2023 2:34:02 AM org.glassfish.grizzly.http.server.HttpServer start
+2023-07-05 02:34:02,824 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] INFO: [HttpServer] Started.
+2023-07-05 02:34:02,824 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-07-05 02:35:12,932 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
