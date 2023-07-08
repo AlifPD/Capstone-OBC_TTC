@@ -1,17 +1,10 @@
-17:31:13 **** Incremental Build of configuration Debug for project F446ZET6 ****
+14:09:55 **** Incremental Build of configuration Debug for project F446ZET6 ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: F446ZET6.elf
- 
 arm-none-eabi-size   F446ZET6.elf 
-arm-none-eabi-objdump -h -S  F446ZET6.elf  > "F446ZET6.list"
    text	   data	    bss	    dec	    hex	filename
-  12404	     32	   1736	  14172	   375c	F446ZET6.elf
+  17912	   4128	   5960	  28000	   6d60	F446ZET6.elf
 Finished building: default.size.stdout
  
-Finished building: F446ZET6.list
- 
 
-17:31:13 Build Finished. 0 errors, 0 warnings. (took 680ms)
+14:09:55 Build Finished. 0 errors, 0 warnings. (took 250ms)
 
