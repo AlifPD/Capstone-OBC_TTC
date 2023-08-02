@@ -1,7 +1,4 @@
 initRes
 w25qxx
-i2cRxBuf
-resTx
-resRx
-buffer1
+buffer
 dummy1

@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "string.h"
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -32,6 +32,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -42,29 +43,39 @@
 /* Private variables ---------------------------------------------------------*/
 UART_HandleTypeDef huart1;
 
-osThreadId defaultTaskHandle;
+osThreadId Task1Handle;
 osThreadId Task2Handle;
-/* USER CODE BEGIN PV */
 osThreadId Task3Handle;
+osSemaphoreId BinSemHandle;
+/* USER CODE BEGIN PV */
+int indx = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART1_UART_Init(void);
-void StartDefaultTask(void const * argument);
-void Task2_init(void const * argument);
+void StartTask1(void const * argument);
+void StartTask2(void const * argument);
+void StartTask3(void const * argument);
 
 /* USER CODE BEGIN PFP */
-void Task3_init(void const * argument);
+#ifdef __GNUC__
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#else
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif
+
+PUTCHAR_PROTOTYPE
+{
+  HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+  return ch;
+}
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void serialPrint(char *string){
-	uint8_t len = strlen(string);
-	HAL_UART_Transmit(&huart1, (uint8_t *)string, len, 500);
-}
+
 /* USER CODE END 0 */
 
 /**
@@ -97,12 +108,17 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  printf("Starting\n\r");
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
   /* USER CODE END RTOS_MUTEX */
+
+  /* Create the semaphores(s) */
+  /* definition and creation of BinSem */
+  osSemaphoreDef(BinSem);
+  BinSemHandle = osSemaphoreCreate(osSemaphore(BinSem), 1);
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
   /* add semaphores, ... */
@@ -117,18 +133,20 @@ int main(void)
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
-  /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
-  defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
+  /* definition and creation of Task1 */
+  osThreadDef(Task1, StartTask1, osPriorityNormal, 0, 128);
+  Task1Handle = osThreadCreate(osThread(Task1), NULL);
 
   /* definition and creation of Task2 */
-  osThreadDef(Task2, Task2_init, osPriorityAboveNormal, 0, 128);
+  osThreadDef(Task2, StartTask2, osPriorityHigh, 0, 128);
   Task2Handle = osThreadCreate(osThread(Task2), NULL);
+
+  /* definition and creation of Task3 */
+  osThreadDef(Task3, StartTask3, osPriorityLow, 0, 128);
+  Task3Handle = osThreadCreate(osThread(Task3), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
-  osThreadDef(Task3, Task3_init, osPriorityBelowNormal, 0, 128);
-  Task3Handle = osThreadCreate(osThread(Task3), NULL);
   /* USER CODE END RTOS_THREADS */
 
   /* Start scheduler */
@@ -240,59 +258,88 @@ static void MX_USART1_UART_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
+/* USER CODE BEGIN MX_GPIO_Init_1 */
+/* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
+/* USER CODE BEGIN MX_GPIO_Init_2 */
+/* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
 
 /* USER CODE END 4 */
 
-/* USER CODE BEGIN Header_StartDefaultTask */
+/* USER CODE BEGIN Header_StartTask1 */
 /**
-  * @brief  Function implementing the defaultTask thread.
+  * @brief  Function implementing the Task1 thread.
   * @param  argument: Not used
   * @retval None
   */
-/* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void const * argument)
+/* USER CODE END Header_StartTask1 */
+void StartTask1(void const * argument)
 {
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
   for(;;)
   {
-	  serialPrint("Hello_Task1\n\r");
-	  osDelay(1000);
+	  printf("Enter Task 1\n\r");
+	  printf("Leave Task 1\n\n\r");
+	  osDelay(500);
   }
   /* USER CODE END 5 */
 }
 
-/* USER CODE BEGIN Header_Task2_init */
+/* USER CODE BEGIN Header_StartTask2 */
 /**
 * @brief Function implementing the Task2 thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_Task2_init */
-void Task2_init(void const * argument)
+/* USER CODE END Header_StartTask2 */
+void StartTask2(void const * argument)
 {
-  /* USER CODE BEGIN Task2_init */
+  /* USER CODE BEGIN StartTask2 */
   /* Infinite loop */
   for(;;)
   {
-	  serialPrint("Hello_Task2\n\r");
-	  osDelay(1000);
+	  printf("Entered Task 2 and waiting for Semaphore\n\r");
+
+	  osSemaphoreWait(BinSemHandle, osWaitForever);
+	  printf("Semaphore Acquired by Task 2\n\r");
+
+	  printf("Leaving Task 2 and releasing Semaphore\n\n\r");
+	  osSemaphoreRelease(BinSemHandle);
+	  osDelay(500);
   }
-  /* USER CODE END Task2_init */
+  /* USER CODE END StartTask2 */
 }
 
-void Task3_init(void const * argument){
-	while(1){
-		serialPrint("Hello_Task3\n\r");
-		osDelay(1000);
-	}
+/* USER CODE BEGIN Header_StartTask3 */
+/**
+* @brief Function implementing the Task3 thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartTask3 */
+void StartTask3(void const * argument)
+{
+  /* USER CODE BEGIN StartTask3 */
+  /* Infinite loop */
+  for(;;)
+  {
+	  printf("Entered Task 3 and waiting for Semaphore\n\r");
+
+	  	  osSemaphoreWait(BinSemHandle, osWaitForever);
+	  	  printf("Semaphore Acquired by Task 3\n\r");
+
+	  	  printf("Leaving Task 3 and releasing Semaphore\n\n\r");
+	  	  osSemaphoreRelease(BinSemHandle);
+	  	  osDelay(500);
+  }
+  /* USER CODE END StartTask3 */
 }
 
 /**

@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "string.h"
+#include <stdio.h>
 #include "w25qxx.h"
 #include "dummy_data.h"
 /* USER CODE END Includes */
@@ -33,6 +33,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -48,51 +49,34 @@ SPI_HandleTypeDef hspi1;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-uint8_t ADDRESS_MAIN = 90;
-uint8_t ADDRESS_REDUNDANT = 92;
-uint8_t ADDRESS_TTC = 94;
-
-uint8_t i2cRxBuf[8] = {0};
-//unsigned char i2cRxBuf[50];
-uint8_t i2cTxBuf[8] = {1,2,3,4,5,6,7,1};
-
-HAL_StatusTypeDef resTx;
-HAL_StatusTypeDef resRx;
-
-uint8_t buffer1[4096] = {0};
+uint8_t buffer[4096] = {0};
 bool initRes = false;
+uint8_t i2cbuf[1];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_I2C1_Init(void);
-static void MX_USART1_UART_Init(void);
 static void MX_SPI1_Init(void);
+static void MX_USART1_UART_Init(void);
+static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
+#ifdef __GNUC__
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#else
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif
 
+PUTCHAR_PROTOTYPE
+{
+  HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+  return ch;
+}
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void serialPrint(char *string){
-	uint8_t len = strlen(string);
-	HAL_UART_Transmit(&huart1, (uint8_t *)string, len, 2000);
-}
 
-void blink(int delayOn, int delayOff){
-	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
-	serialPrint("LED OFF\n\r");
-	HAL_Delay(delayOff);
-
-	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
-	serialPrint("LED ON\n\r");
-	HAL_Delay(delayOn);
-
-	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
-	serialPrint("LED OFF\n\r");
-	HAL_Delay(delayOff);
-}
 /* USER CODE END 0 */
 
 /**
@@ -123,18 +107,37 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_I2C1_Init();
-  MX_USART1_UART_Init();
   MX_SPI1_Init();
+  MX_USART1_UART_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-//  while(!W25qxx_Init()){
+//  HAL_GPIO_WritePin(SELECTOR_GPIO_Port, SELECTOR_Pin, GPIO_PIN_SET);
+//  if(!W25qxx_Init()){
 //  	  initRes = false;
-//    }
-//    initRes = true;
+//  }else{
+//	  initRes = true;
+//  }
 //
-//    W25qxx_EraseSector(1);
-//    W25qxx_WriteSector(dummy1, 1, 0, 4096);
-//    W25qxx_ReadSector(buffer1, 1, 0, 4096);
+//  HAL_GPIO_WritePin(SELECTOR_GPIO_Port, SELECTOR_Pin, GPIO_PIN_RESET);
+//  while(!W25qxx_Init()){
+//	  initRes = false;
+//  }
+//  initRes = true;
+//
+//  W25qxx_ReadSector(buffer, 3, 0, 4096);
+//  W25qxx_EraseSector(3);
+//  W25qxx_ReadSector(buffer, 3, 0, 4096);
+//  W25qxx_WriteSector(dummy1, 3, 0, 4096);
+//  W25qxx_ReadSector(buffer, 3, 0, 4096);
+  HAL_GPIO_WritePin(SELECTOR_GPIO_Port, SELECTOR_Pin, GPIO_PIN_RESET);
+  printf("Waiting for Data\n\r");
+  if(HAL_I2C_Master_Receive(&hi2c1, 92, i2cbuf, 1, HAL_MAX_DELAY) == HAL_OK){
+	  printf("Data received: %d\n\r", i2cbuf[0]);
+	  if(i2cbuf[0] == 1){
+		  HAL_GPIO_WritePin(SELECTOR_GPIO_Port, SELECTOR_Pin, GPIO_PIN_SET);
+	  }
+  }
+  printf("DONE\n\r");
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -144,12 +147,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  resTx = HAL_I2C_Master_Transmit(&hi2c1, ADDRESS_TTC<<1, i2cTxBuf, 8, 1000);
-	  i2cTxBuf[7]++;
-	  if(resTx == HAL_OK){
-		  resRx = HAL_I2C_Master_Receive(&hi2c1, ADDRESS_TTC<<1, i2cRxBuf, 8, 1000);
-	  }
-	  HAL_Delay(500);
+
   }
   /* USER CODE END 3 */
 }
@@ -224,9 +222,9 @@ static void MX_I2C1_Init(void)
 
   /* USER CODE END I2C1_Init 1 */
   hi2c1.Instance = I2C1;
-  hi2c1.Init.ClockSpeed = 40000;
+  hi2c1.Init.ClockSpeed = 100000;
   hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
-  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.OwnAddress1 = 90;
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
   hi2c1.Init.OwnAddress2 = 0;
@@ -321,24 +319,19 @@ static void MX_USART1_UART_Init(void)
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
+/* USER CODE BEGIN MX_GPIO_Init_1 */
+/* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOE_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(FLASH_CS_GPIO_Port, FLASH_CS_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : LED_Pin */
-  GPIO_InitStruct.Pin = LED_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(SELECTOR_GPIO_Port, SELECTOR_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : FLASH_CS_Pin */
   GPIO_InitStruct.Pin = FLASH_CS_Pin;
@@ -347,6 +340,15 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(FLASH_CS_GPIO_Port, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : SELECTOR_Pin */
+  GPIO_InitStruct.Pin = SELECTOR_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(SELECTOR_GPIO_Port, &GPIO_InitStruct);
+
+/* USER CODE BEGIN MX_GPIO_Init_2 */
+/* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */

@@ -3,4 +3,4 @@ angularExpressionBorder=\#FFFFFF | null | null | null | null | null
 directiveName=\#EC691E | null | null | null | null | null
 directiveParameterName=\#357A92 | null | null | null | null | null
 eclipse.preferences.version=1
-overriddenByCSS=,angularExpressionBorder,directiveParameterName,angularExpression,directiveName,
+overriddenByCSS=,angularExpression,directiveName,angularExpressionBorder,directiveParameterName,

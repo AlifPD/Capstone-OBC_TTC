@@ -1,6 +1,7 @@
-byte DATA_FRAME[275] = {0xFF};
-byte DATA_FRAME_CRC[272];
 byte iField[256] = {0xFF};
+byte AX25_FRAME[272] = {0x00};
+byte AX25_FRAME_FINAL[275] = {0x00};
+byte AX25_FRAME_STUFFED[450] = {0x00};
 
 char DST_ADDRESS[6];
 char SRC_ADDRESS[6];
@@ -16,41 +17,48 @@ void AX25_Encapsulate(byte* message, int messageSize, String dst, String src){
   SetAddress(dst, src);
   SetIField(message, messageSize);
   int index = 0;
+  int indexFinal = 0;
 
-  DATA_FRAME[index++] = FLAG;
+  AX25_FRAME_FINAL[indexFinal++] = FLAG;
 
   for(int i=0; i<7; i++){
     if(i != 6){
-      DATA_FRAME[index++] = reverseBits(DST_ADDRESS[i]<<1);
+      AX25_FRAME[index++] = reverseBits(DST_ADDRESS[i]<<1);
+      AX25_FRAME_FINAL[indexFinal++] = reverseBits(DST_ADDRESS[i]<<1);
     }else{
-      DATA_FRAME[index++] = reverseBits(DST_SSID);
+      AX25_FRAME[index++] = reverseBits(DST_SSID);
+      AX25_FRAME_FINAL[indexFinal++] = reverseBits(DST_SSID);
     }
   }
 
   for(int i=0; i<7; i++){
     if(i != 6){
-      DATA_FRAME[index++] = reverseBits(SRC_ADDRESS[i]<<1);
+      AX25_FRAME[index++] = reverseBits(SRC_ADDRESS[i]<<1);
+      AX25_FRAME_FINAL[indexFinal++] = reverseBits(SRC_ADDRESS[i]<<1);
     }else{
-      DATA_FRAME[index++] = reverseBits(SRC_SSID);
+      AX25_FRAME[index++] = reverseBits(SRC_SSID);
+      AX25_FRAME_FINAL[indexFinal++] = reverseBits(SRC_SSID);
+
     }
   }
 
-  DATA_FRAME[index++] = reverseBits(CONTROL);
-  DATA_FRAME[index++] = reverseBits(PID);
+  AX25_FRAME[index++] = reverseBits(CONTROL);
+  AX25_FRAME[index++] = reverseBits(PID);
+  AX25_FRAME_FINAL[indexFinal++] = reverseBits(CONTROL);
+  AX25_FRAME_FINAL[indexFinal++] = reverseBits(PID);
 
   for(int i=0; i<sizeof(iField); i++){
-    DATA_FRAME[index++] = reverseBits(iField[i]);
+    AX25_FRAME[index++] = reverseBits(iField[i]);
+    AX25_FRAME_FINAL[indexFinal++] = reverseBits(iField[i]);
   }
-
-  bitStuffing(DATA_FRAME);
-
-  // for(int i=0; i<272; i++){
-  //   DATA_FRAME_CRC[i] = DATA_FRAME[i+1];
-  // }
   
-  // uint16_t crcValue = calculateCRC(DATA_FRAME_CRC, sizeof(DATA_FRAME_CRC));
-  // DATA_FRAME[index++] = crcValue>>8;
-  // DATA_FRAME[index++] = crcValue & 0x00FF;
+  // bitStuffing();
+
+  uint16_t crcValue = calculateCRC(AX25_FRAME, sizeof(AX25_FRAME));
+  Serial.println(crcValue, HEX);
+
+  AX25_FRAME_FINAL[indexFinal++] = (crcValue>>8) & 0xFF;
+  AX25_FRAME_FINAL[indexFinal++] = (crcValue>>0) & 0xFF;
 }
 
 void SetIField(byte* message, int messageSize){
@@ -111,62 +119,35 @@ byte reverseBits(byte b) {
   return reversed;
 }
 
-void bitStuffing(byte* dataArr) {
-  int arrSize = 275;  // Current size of the array
-  
-  for (int i = 0; i < arrSize; i++) {
-    byte data = dataArr[i];
-    byte mask = 0b00011111;  // Bit mask to check for bit stuffing
-    byte prevBit = 0;  // Previous bit value
-    byte consecutiveOnes = 0;  // Counter for consecutive ones
-    byte stuffedBits = 0;  // Counter for stuffed bits
-    
-    for (int j = 0; j < 8; j++) {
-      byte currentBit = (data >> j) & 0b00000001;
-      
-      if (currentBit == 1) {
-        consecutiveOnes++;
-        
-        if (consecutiveOnes >= 5 && prevBit == 1) {
-          // Bit stuffing detected
-          if (stuffedBits < 2) {
-            // Insert a stuffed bit (0)
-            data = (data << 1) | 0b00000001;
-            stuffedBits++;
-          } else {
-            // Shift the remaining bits to the left to make room for a new stuffed bit
-            for (int k = 7; k > j; k--) {
-              byte bit = (data >> (k - 1)) & 0b00000001;
-              data = (data & ~(0b00000001 << k)) | (bit << k);
-            }
-            
-            // Insert a new stuffed bit (0) at the current bit position
-            data = (data & ~(0b00000001 << j)) | (0b00000001 << j);
-            
-            // Increase the array size
-            arrSize++;
-            
-            // Shift the elements after the current index to the right
-            for (int k = arrSize - 1; k > i; k--) {
-              dataArr[k] = dataArr[k - 1];
-            }
-          }
-        }
-      } else {
-        consecutiveOnes = 0;  // Reset the counter if the bit is 0
-      }
-      
-      prevBit = currentBit;
-    }
-    
-    // Update the array with the modified data
-    dataArr[i] = data;
-  }
-}
+void bitStuffing(){
+  // int stuffedIndex = 0;
+  // int count = 0;
+
+  // for(int i=0; i<sizeof(AX25_FRAME); i++){
+  //   byte currentByte = AX25_FRAME[i];
+
+  //   for(int bit=7; bit>=0; bit--){
+  //     bool currentBit = (currentByte>>bit) & 1;
+
+  //     if(currentBit){
+  //       count++;
+
+  //       if(count == 6){
+          
+  //       }else{
+
+  //       }
+
+  //     }else{
+  //       count = 0;
+  //     }
+  //   }
+  // }  
+} // TODO !!
 
 void AX25_ClearBuffer(){
-  for(int i=0; i<sizeof(DATA_FRAME); i++){
-    DATA_FRAME[i] = 0xFF;
+  for(int i=0; i<sizeof(AX25_FRAME); i++){
+    AX25_FRAME[i] = 0xFF;
   }
   for(int i=0; i<sizeof(iField); i++){
     iField[i] = 0xFF;
@@ -174,10 +155,21 @@ void AX25_ClearBuffer(){
 }
 
 void AX25_Test_Print(){
-  // Serial.println("AX25 Library");
-  for(int i=0; i<sizeof(DATA_FRAME); i++){
-    Serial.print(DATA_FRAME[i], HEX);
+  for(int i=0; i<sizeof(AX25_FRAME); i++){
+    Serial.print(AX25_FRAME[i], HEX);
     Serial.print(" ");
   }
   Serial.println();
+
+  for(int i=0; i<sizeof(AX25_FRAME_FINAL); i++){
+    Serial.print(AX25_FRAME_FINAL[i], HEX);
+    Serial.print(" ");
+  }
+  Serial.println();
+
+  // for(int i=0; i<sizeof(AX25_FRAME_STUFFED); i++){
+  //   Serial.print(AX25_FRAME_STUFFED[i], HEX);
+  //   Serial.print(" ");
+  // }
+  // Serial.println();
 }

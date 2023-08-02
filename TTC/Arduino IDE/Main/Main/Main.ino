@@ -16,8 +16,8 @@ uint8_t buf[Max_Packet_Size];
 uint8_t bufLen = sizeof(buf);
 
 // uint8_t userInput;
-uint8_t userInput = 1; // TX
-// uint8_t userInput = 2; // RX
+// uint8_t userInput = 1; // TX
+uint8_t userInput = 2; // RX
 
 static int counter; // Variable to count number of transmitted data
 static int invalids;  // Variable to count number of failed received data
@@ -67,7 +67,7 @@ void loop() {
                 Serial.print(counter);
                 Serial.println(" Data");
                 Serial.println("+++++++");
-                delay(500);
+                // delay(500);
               }
               break;
     case 2 :  setupReceive();
@@ -77,10 +77,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.print(" --> Received Message: ");
                   Serial.print((char*)buf);
-
-                  (uint8_t)rf4463_RX.lastRssi();
-                  Serial.print(" Rssi: ");
-                  Serial.println(lastRssi);
                 } else {
                   Serial.print("Tries : ");
                   Serial.print(counter);
@@ -109,7 +105,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI_DIV2;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL12;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -121,7 +117,7 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
@@ -129,6 +125,7 @@ void SystemClock_Config(void)
     Error_Handler();
   }
 }
+
 
 void setupTransmit(){
   digitalWrite(rf_receive, LOW);

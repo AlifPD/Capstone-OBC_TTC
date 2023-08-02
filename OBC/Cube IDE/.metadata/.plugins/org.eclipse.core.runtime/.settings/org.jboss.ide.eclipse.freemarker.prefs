@@ -7,4 +7,4 @@ color.text=255,255,255
 color.xmlComment=140,63,200
 color.xmlTag=60,117,141
 eclipse.preferences.version=1
-overriddenByCSS=,color.xmlTag,color.text,color.string,color.interpolation,color.xmlComment,color.directive,color.comment,color.oppositeRegion,
+overriddenByCSS=,color.oppositeRegion,color.string,color.text,color.interpolation,color.xmlComment,color.xmlTag,color.directive,color.comment,

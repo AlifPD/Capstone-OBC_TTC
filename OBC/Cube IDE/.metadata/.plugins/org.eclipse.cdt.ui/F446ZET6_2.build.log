@@ -1,17 +1,17 @@
-06:05:01 **** Incremental Build of configuration Debug for project F446ZET6_2 ****
+13:55:03 **** Incremental Build of configuration Debug for project F446ZET6_2 ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "F446ZET6_2.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6_2\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: F446ZET6_2.elf
  
 arm-none-eabi-size   F446ZET6_2.elf 
 arm-none-eabi-objdump -h -S  F446ZET6_2.elf  > "F446ZET6_2.list"
    text	   data	    bss	    dec	    hex	filename
-  16008	     24	  18016	  34048	   8500	F446ZET6_2.elf
+  25232	    116	  18356	  43704	   aab8	F446ZET6_2.elf
 Finished building: default.size.stdout
  
 Finished building: F446ZET6_2.list
  
 
-06:05:02 Build Finished. 0 errors, 0 warnings. (took 875ms)
+13:55:04 Build Finished. 0 errors, 0 warnings. (took 704ms)
 

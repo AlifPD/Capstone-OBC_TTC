@@ -1,23 +1,19 @@
 #include <RH_RF24.h> // include Si446x.h library
-// #include <RHSoftwareSPI.h>
 
 #define Max_Packet_Size 128
 #define rf_receive PA12
 #define rf_transmit PB3
 #define power_hpa PA1
 
-char message[Max_Packet_Size]; // Test Message
-char *message_ptr = &message[Max_Packet_Size]; // Pointer for variable "message"
-
+uint8_t message[8] = {1,2,3,4,5,6,7,0}; // Test Message
 static int counter; // Variable to count number of transmitted data
 
-// RHSoftwareSPI spi2;
-RH_RF24 rf4463(PA4, PB1, PB0); // Initialize RF4463 Object
+RH_RF24 rf4463(PA4, PB1, PB0); // Initiali ze RF4463 Object
 
 // Main Setup function
 void setup() {
-  // spi2.setPins(PB14, PB15, PB13);
   SystemClock_Config();
+
   pinMode(rf_receive, OUTPUT);
   pinMode(rf_transmit, OUTPUT);
   pinMode(power_hpa, OUTPUT);
@@ -36,13 +32,16 @@ void setup() {
 
 // Main Loop function
 void loop() {
-  sprintf(message, "TTC Board Test, Message number: %d", counter+1);
-  Serial.print(F("Sending Data..."));
-  Serial.println(message);
+  Serial.print("TTC Test, Data: ");
+  for(int i=0; i<8; i++){
+    Serial.print(message[i]);
+    Serial.print(" ");
+  }
+  Serial.println();
   
-
-  if(rf4463.send((uint8_t*)message, sizeof(message))){
+  if(rf4463.send(message, sizeof(message))){
     counter++;
+    message[7]++;
   }else{
     Serial.println(F("Transmit Failed"));
   }
@@ -51,6 +50,8 @@ void loop() {
   Serial.print(counter);
   Serial.println(" Data");
   Serial.println("+++++++");
+
+  delay(500);
 }
 
 void SystemClock_Config(void)
@@ -66,7 +67,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI_DIV2;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL12;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -78,7 +79,7 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
