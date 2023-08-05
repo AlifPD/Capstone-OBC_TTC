@@ -8,18 +8,15 @@
 
 #define ADDR_TTC 94
 
-RH_RF24 rf4463_TX(PA4, PB1, PB0);
 RHSoftwareSPI spi2;
 RH_RF24 rf4463_RX(PB12, PA11, PA8, spi2);
 
 static int counter;
 static int invalids;
-uint8_t mode = 2;
 
 uint8_t I2C_TX_BUF[55] = {0xFF};
 uint8_t I2C_RX_BUF[191] = {0xFF};
 
-uint8_t RF_TX_BUF[191] = {0xFF};
 uint8_t RF_RX_BUF[5] = {0xFF};
 uint8_t len_RF_RX_BUF = sizeof(RF_RX_BUF);
 
@@ -32,12 +29,7 @@ void setup() {
 
   pinMode(RF_RX_SWC, OUTPUT); digitalWrite(RF_RX_SWC, HIGH);
   pinMode(RF_TX_SWC, OUTPUT); digitalWrite(RF_TX_SWC, LOW);
-  pinMode(HPA_PWR, OUTPUT);   digitalWrite(HPA_PWR, LOW); 
-
-  while(!rf4463_TX.init())
-    Serial.println("Init TX Failed");
-  Serial.println("Init TX Success");  
-  rf4463_TX.setTxPower(0x7F);
+  pinMode(HPA_PWR, OUTPUT);   digitalWrite(HPA_PWR, LOW);
 
   while(!rf4463_RX.init())
     Serial.println("Init RX Failed");
@@ -50,7 +42,6 @@ void setup() {
   Wire.setTimeout(1000);
 
   Clr_RF_RX_BUF();
-  Clr_RF_TX_BUF();
   Clr_I2C_RX_BUF();
   Clr_I2C_TX_BUF();
 }
@@ -67,7 +58,6 @@ void receiveEvent(int count) {
     Serial.println(" ]");
   }
   Clr_I2C_RX_BUF();
-  mode = 1;
 }
 
 void requestEvent(){
@@ -86,36 +76,6 @@ void requestEvent(){
 }
 
 void loop() {
-  switch(mode){
-    case 1 :  
-      digitalWrite(RF_RX_SWC, LOW);
-      digitalWrite(RF_TX_SWC, HIGH);
-      digitalWrite(HPA_PWR, HIGH);
-
-      Serial.print("Space Segment, Data Transmit : [");
-      for(int i=0; i<191; i++){ 
-        Serial.print(" ");
-        Serial.print(RF_TX_BUF[i], HEX);
-      }
-      Serial.println(" ]");
-  
-      if(rf4463_TX.send(RF_TX_BUF, 191)){
-        counter++;
-      }else{
-        Serial.println("Transmit Failed");
-      }
-
-      Serial.print("Totals : ");
-      Serial.print(counter);
-      Serial.println(" Data");
-      Serial.println("+++++++");
-      Clr_RF_TX_BUF();
-      mode = 2;
-      break;
-    case 2 : 
-      digitalWrite(RF_RX_SWC, HIGH);
-      digitalWrite(RF_TX_SWC, LOW);
-      digitalWrite(HPA_PWR, LOW);
       if (rf4463_RX.recv(RF_RX_BUF, &len_RF_RX_BUF)) {
         Serial.print("Tries : ");
         Serial.print(counter);
@@ -141,9 +101,7 @@ void loop() {
         invalids++;
       }
       counter++;
-      break;
-  }
-  
+      delay(250);
 }
 
 void SystemClock_Config(void)
@@ -183,12 +141,6 @@ void SystemClock_Config(void)
 void Clr_RF_RX_BUF(){
   for(int i = 0; i<sizeof(RF_RX_BUF); i++){
     RF_RX_BUF[i] = {0xFF};
-  }
-}
-
-void Clr_RF_TX_BUF(){
-  for(int i = 0; i<sizeof(RF_TX_BUF); i++){
-    RF_TX_BUF[i] = {0xFF};
   }
 }
 

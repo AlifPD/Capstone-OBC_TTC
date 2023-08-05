@@ -1,19 +1,14 @@
 #include <RH_RF24.h>
-#include <RHSoftwareSPI.h>
 
 #define RF_RX_SWC PA12
 #define RF_TX_SWC PB3
 #define HPA_PWR PA1
 
 RH_RF24 rf4463_TX(PA4, PB1, PB0); 
-RHSoftwareSPI spi2;
-RH_RF24 rf4463_RX(PB12, PA11, PA8, spi2);
 
 uint8_t UserInput;
-uint8_t mode = 1;
 
 static int counter;
-static int invalids;
 
 
 uint8_t RF_RX_BUF[191];                             // RF Receive Buffer
@@ -53,25 +48,15 @@ void setup() {
 
   Serial.begin(115200);
 
-  spi2.setPins(PB14, PB15, PB13);
-
   while(!rf4463_TX.init())
     Serial.println("Init TX Failed");
   Serial.println("Init TX Success");  
   rf4463_TX.setTxPower(0x7F);  
 
-  while(!rf4463_RX.init())
-    Serial.println("Init RX Failed");
-  Serial.println("Init RX Success");
-  rf4463_RX.setModeRx();  
-
   Clr_RF_RX_BUF();                                 
 }
 
 void loop() {
-  Clr_RF_RX_BUF();
-  switch(mode){
-    case 1 :  
       Serial.println("Choose Command to Send to Satellite ...");
       Serial.println("1. Activate 5V SWC-1");
       Serial.println("2. Activate 5V SWC-2");
@@ -118,7 +103,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;
 
         case 2 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -138,7 +122,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;
 
         case 3 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -158,7 +141,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;
 
         case 4 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -178,7 +160,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;
 
         case 5 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -198,7 +179,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;
 
         case 6 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -218,7 +198,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;
 
         case 7 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -238,7 +217,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;
 
         case 8 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -258,7 +236,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;
 
         case 9 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -278,7 +255,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;
         
         case 10 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -298,7 +274,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;
 
         case 11 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -318,7 +293,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;  
 
         case 12 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -338,7 +312,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;  
 
         case 13 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -358,7 +331,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;
                   
         case 14 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -378,7 +350,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;    
 
         case 15 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -398,7 +369,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;
 
         case 16 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -418,7 +388,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;      
 
         case 17 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -438,7 +407,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;  
 
         case 18 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -458,7 +426,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;  
 
         case 19 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -478,7 +445,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;  
 
         case 20 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -498,7 +464,6 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;  
 
         case 21 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -518,40 +483,11 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
-                  mode = 2;
                   break;  
 
         default : Serial.print("Input Invalid : ");
                   Serial.println(UserInput);
       }
-    case 2 :  
-      Clr_RF_RX_BUF();
-      digitalWrite(RF_RX_SWC, HIGH);
-      digitalWrite(RF_TX_SWC, LOW);
-      digitalWrite(HPA_PWR, LOW);
-        
-      if (rf4463_RX.recv(RF_RX_BUF, &len_RF_RX_BUF)) {
-        Serial.print("Tries : ");
-        Serial.print(counter);
-        Serial.print(" --> Received Message : [");
-
-        for(int i=0; i<len_RF_RX_BUF; i++){
-          Serial.print(" ");
-          Serial.print(RF_RX_BUF[i], HEX);
-        }
-        Serial.println("]");
-        if(!RF_RX_BUF[0] == 80){
-          mode = 1;
-        }
-      } else {
-        Serial.print("Tries : ");
-        Serial.print(counter);
-        Serial.println(" --> recv failed");
-        invalids++;
-      }
-      counter++;
-      break; 
-  }
 }
 
 void SystemClock_Config(void)
