@@ -26,3 +26,31 @@ Finished building: default.size.stdout
  
 Finished building: F446ZET6_3.list
  
+16:09:52 **** Incremental Build of configuration Debug for project F446ZET6_3 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25176	   1056	   2624	  28856	   70b8	F446ZET6_3.elf
+Finished building: default.size.stdout
+ 
+16:12:52 **** Incremental Build of configuration Debug for project F446ZET6_3 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25176	   1056	   2624	  28856	   70b8	F446ZET6_3.elf
+Finished building: default.size.stdout
+ 
+16:13:11 **** Incremental Build of configuration Debug for project F446ZET6_3 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25176	   1056	   2624	  28856	   70b8	F446ZET6_3.elf
+Finished building: default.size.stdout
+ 
+16:13:38 **** Incremental Build of configuration Debug for project F446ZET6_3 ****
+make -j16 all 
+arm-none-eabi-size   F446ZET6_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25176	   1056	   2624	  28856	   70b8	F446ZET6_3.elf
+Finished building: default.size.stdout
+ 
