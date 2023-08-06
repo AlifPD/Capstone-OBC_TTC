@@ -288,6 +288,8 @@ int main(void)
   W25qxx_WritePage(dum3, 2, 0, 186);
   W25qxx_WritePage(dum4, 3, 0, 186);
   W25qxx_WritePage(dum5, 4, 0, 186);
+
+  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -298,7 +300,6 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	  printf("Waiting Data from Ground\r\n");
-//	  Clr_I2C_RX_BUF();
 	  if(HAL_I2C_Master_Receive(&hi2c1, ADDR_TTC<<1, I2C_RX_BUF, 55, HAL_MAX_DELAY) == HAL_OK){
 		  printf("Data Received by OBC from Ground: [");
 		  for(int i=0; i<sizeof(I2C_RX_BUF); i++){
@@ -319,16 +320,20 @@ int main(void)
 
 			  if(HAL_I2C_Master_Transmit(&hi2c1, ADDR_TTC<<1, I2C_TX_BUF, 191, HAL_MAX_DELAY) == HAL_OK){
 				  printf("Data Returned to Ground\n\r");
-			  }
 
-//			  Clr_I2C_ADDR();
-//			  Clr_I2C_TX_BUF();
+				  if(ADDR_I2C == ADDR_RDT){
+					  HAL_GPIO_WritePin(MUX_SEL_GPIO_Port, MUX_SEL_Pin, GPIO_PIN_SET);
+					  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+					  HAL_SuspendTick();
+					  HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
+				  }
+			  }
+			  Clr_I2C_TX_BUF();
 		  }
-//		  Clr_I2C_RX_BUF();
 	  } else {
 		  printf("NO DATA RECEIVED, Continue Waiting\n\r");
-//		  Clr_I2C_RX_BUF();
 	  }
+	  Clr_I2C_RX_BUF();
   }
   /* USER CODE END 3 */
 }
@@ -405,7 +410,7 @@ static void MX_I2C1_Init(void)
   hi2c1.Instance = I2C1;
   hi2c1.Init.ClockSpeed = 100000;
   hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
-  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.OwnAddress1 = ADDR_MAIN;
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
   hi2c1.Init.OwnAddress2 = 0;
@@ -504,15 +509,26 @@ static void MX_GPIO_Init(void)
 /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOE_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(FLASH_CS_GPIO_Port, FLASH_CS_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(MUX_SEL_GPIO_Port, MUX_SEL_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : LED_Pin */
+  GPIO_InitStruct.Pin = LED_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : FLASH_CS_Pin */
   GPIO_InitStruct.Pin = FLASH_CS_Pin;
@@ -752,13 +768,6 @@ void ParseCMD(){
 			}
 		}
 	}
-
-//	I2C_TX_BUF[1] = I2C_RX_BUF[6];
-//	I2C_TX_BUF[2] = I2C_RX_BUF[7];
-//	I2C_TX_BUF[3] = I2C_RX_BUF[8];
-//	I2C_TX_BUF[4] = I2C_RX_BUF[9];
-
-
 }
 
 void Clr_I2C_TX_BUF(){

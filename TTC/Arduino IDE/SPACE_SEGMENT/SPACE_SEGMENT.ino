@@ -15,12 +15,12 @@ RH_RF24 rf4463_RX(PB12, PA11, PA8, spi2);
 static int counter;
 static int invalids;
 
-uint8_t I2C_TX_BUF[55] = {0xFF};
-uint8_t I2C_RX_BUF[191] = {0xFF};
+uint8_t I2C_TX_BUF[55];
+uint8_t I2C_RX_BUF[191];
 
-uint8_t RF_RX_BUF[5] = {0xFF};
-uint8_t len_RF_RX_BUF = sizeof(RF_RX_BUF);
-uint8_t RF_TX_BUF[191] = {0xFF};
+uint8_t RF_RX_BUF[5];
+uint8_t len_RF_RX_BUF = 5;
+uint8_t RF_TX_BUF[191];
 
 void setup() {
   SystemClock_Config();
@@ -60,7 +60,6 @@ void receiveEvent(int count) {
     for(int i=0; i<191; i++){
       byte x = Wire.read();
 
-      I2C_RX_BUF[i] = x;
       RF_TX_BUF[i] = x;
 
       Serial.print(" ");
@@ -68,6 +67,7 @@ void receiveEvent(int count) {
     }
     Serial.println(" ]");
   }
+  Clr_I2C_RX_BUF();
 }
 
 void requestEvent(){
@@ -103,28 +103,28 @@ void loop() {
 
     rf4463_TX.setModeTx();
     delay(1000);
-    for(int i=0; i<20; i++){
-      digitalWrite(RF_RX_SWC, LOW);
-      digitalWrite(RF_TX_SWC, HIGH);
-      digitalWrite(HPA_PWR, HIGH);
-      
-      if(rf4463_TX.send(RF_TX_BUF, 191)){
-        counter++;
-        for(int i=0; i<191; i++){
-            Serial.print(" ");
-            Serial.print(RF_TX_BUF[i], HEX);
-          }
-          Serial.println("]");
-      }else{
-        Serial.println("Transmit Failed");
-      }
-
-      Serial.print("Totals : ");
-      Serial.print(counter);
-      Serial.println(" Data");
-      Serial.println("+++++++");
-      delay(250);
+    digitalWrite(RF_RX_SWC, LOW);
+    digitalWrite(RF_TX_SWC, HIGH);
+    digitalWrite(HPA_PWR, HIGH);
+    
+    if(rf4463_TX.send(RF_TX_BUF, 191)){
+      counter++;
+      for(int i=0; i<191; i++){
+          Serial.print(" ");
+          Serial.print(RF_TX_BUF[i], HEX);
+        }
+        Serial.println("]");
+    }else{
+      Serial.println("Transmit Failed");
     }
+
+    Serial.print("Totals : ");
+    Serial.print(counter);
+    Serial.println(" Data");
+    Serial.println("+++++++");
+
+    Clr_RF_TX_BUF();
+    delay(250);
   } else {
     Serial.print("Tries : ");
     Serial.print(counter);
@@ -133,8 +133,6 @@ void loop() {
   }
   counter++;
   delay(500);
-
-  
 }
 
 void SystemClock_Config(void)
