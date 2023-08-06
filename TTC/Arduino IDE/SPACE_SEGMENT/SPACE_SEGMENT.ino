@@ -8,6 +8,7 @@
 
 #define ADDR_TTC 94
 
+RH_RF24 rf4463_TX(PA4, PB1, PB0); 
 RHSoftwareSPI spi2;
 RH_RF24 rf4463_RX(PB12, PA11, PA8, spi2);
 
@@ -19,6 +20,7 @@ uint8_t I2C_RX_BUF[191] = {0xFF};
 
 uint8_t RF_RX_BUF[5] = {0xFF};
 uint8_t len_RF_RX_BUF = sizeof(RF_RX_BUF);
+uint8_t RF_TX_BUF[191] = {0xFF};
 
 void setup() {
   SystemClock_Config();
@@ -31,6 +33,11 @@ void setup() {
   pinMode(RF_TX_SWC, OUTPUT); digitalWrite(RF_TX_SWC, LOW);
   pinMode(HPA_PWR, OUTPUT);   digitalWrite(HPA_PWR, LOW);
 
+  while(!rf4463_TX.init())
+      Serial.println("Init TX Failed");
+    Serial.println("Init TX Success");  
+    rf4463_TX.setTxPower(0x7F);
+
   while(!rf4463_RX.init())
     Serial.println("Init RX Failed");
   Serial.println("Init RX Success");
@@ -42,6 +49,7 @@ void setup() {
   Wire.setTimeout(1000);
 
   Clr_RF_RX_BUF();
+  Clr_RF_TX_BUF();
   Clr_I2C_RX_BUF();
   Clr_I2C_TX_BUF();
 }
@@ -49,26 +57,21 @@ void setup() {
 void receiveEvent(int count) {
   Serial.print("Data Received from OBC : [");
   while (0 < Wire.available()) {
-    for(int i=0; i<sizeof(I2C_RX_BUF); i++){
+    for(int i=0; i<191; i++){
       byte x = Wire.read();
+
+      I2C_RX_BUF[i] = x;
+      RF_TX_BUF[i] = x;
 
       Serial.print(" ");
       Serial.print(x, HEX);
     }
     Serial.println(" ]");
   }
-  Clr_I2C_RX_BUF();
 }
 
 void requestEvent(){
-  Serial.print("Data Transmited to OBC : [");
-  for(int i=0; i<sizeof(I2C_TX_BUF); i++){
-    Serial.print(" ");
-    Serial.print(I2C_TX_BUF[i], HEX);
-  }
-  Serial.println("]");
-
-  for(int i = 0; i<sizeof(I2C_TX_BUF); i++){
+  for(int i = 0; i<55; i++){
     Wire.write(I2C_TX_BUF[i]);
   }
 
@@ -76,32 +79,62 @@ void requestEvent(){
 }
 
 void loop() {
-      if (rf4463_RX.recv(RF_RX_BUF, &len_RF_RX_BUF)) {
-        Serial.print("Tries : ");
-        Serial.print(counter);
-        Serial.print(" --> Received Message : [");
+  digitalWrite(RF_RX_SWC, HIGH);
+  digitalWrite(RF_TX_SWC, LOW);
+  digitalWrite(HPA_PWR, LOW);
+  if (rf4463_RX.recv(RF_RX_BUF, &len_RF_RX_BUF)) {
+    Serial.print("Tries : ");
+    Serial.print(counter);
+    Serial.print(" --> Received Message : [");
 
-        I2C_TX_BUF[0] = 0x7F;
-        I2C_TX_BUF[1] = 1;
-        I2C_TX_BUF[2] = 2;
-        I2C_TX_BUF[3] = 0;
-        I2C_TX_BUF[4] = 1;
+    I2C_TX_BUF[0] = 0x7F;
+    I2C_TX_BUF[1] = 1;
+    I2C_TX_BUF[2] = 2;
+    I2C_TX_BUF[3] = 0;
+    I2C_TX_BUF[4] = 1;
 
-        for(int i=0; i<len_RF_RX_BUF; i++){
-          Serial.print(" ");
-          Serial.print(RF_RX_BUF[i], HEX);
+    for(int i=0; i<5; i++){
+      Serial.print(" ");
+      Serial.print(RF_RX_BUF[i], HEX);
 
-          I2C_TX_BUF[i+5] = RF_RX_BUF[i];
-        }
-        Serial.println("]");
-      } else {
-        Serial.print("Tries : ");
-        Serial.print(counter);
-        Serial.println(" --> recv failed");
-        invalids++;
+      I2C_TX_BUF[i+5] = RF_RX_BUF[i];
+    }
+    Serial.println("]");
+
+    rf4463_TX.setModeTx();
+    delay(1000);
+    for(int i=0; i<20; i++){
+      digitalWrite(RF_RX_SWC, LOW);
+      digitalWrite(RF_TX_SWC, HIGH);
+      digitalWrite(HPA_PWR, HIGH);
+      
+      if(rf4463_TX.send(RF_TX_BUF, 191)){
+        counter++;
+        for(int i=0; i<191; i++){
+            Serial.print(" ");
+            Serial.print(RF_TX_BUF[i], HEX);
+          }
+          Serial.println("]");
+      }else{
+        Serial.println("Transmit Failed");
       }
-      counter++;
+
+      Serial.print("Totals : ");
+      Serial.print(counter);
+      Serial.println(" Data");
+      Serial.println("+++++++");
       delay(250);
+    }
+  } else {
+    Serial.print("Tries : ");
+    Serial.print(counter);
+    Serial.println(" --> recv failed");
+    invalids++;
+  }
+  counter++;
+  delay(500);
+
+  
 }
 
 void SystemClock_Config(void)
@@ -141,6 +174,12 @@ void SystemClock_Config(void)
 void Clr_RF_RX_BUF(){
   for(int i = 0; i<sizeof(RF_RX_BUF); i++){
     RF_RX_BUF[i] = {0xFF};
+  }
+}
+
+void Clr_RF_TX_BUF(){
+  for(int i = 0; i<sizeof(RF_TX_BUF); i++){
+    RF_TX_BUF[i] = {0xFF};
   }
 }
 

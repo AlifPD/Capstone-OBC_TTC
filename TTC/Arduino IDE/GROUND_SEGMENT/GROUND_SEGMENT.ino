@@ -1,15 +1,18 @@
 #include <RH_RF24.h>
+#include <RHSoftwareSPI.h>
 
 #define RF_RX_SWC PA12
 #define RF_TX_SWC PB3
 #define HPA_PWR PA1
 
-RH_RF24 rf4463_TX(PA4, PB1, PB0); 
+RH_RF24 rf4463_TX(PA4, PB1, PB0);
+RHSoftwareSPI spi2;
+RH_RF24 rf4463_RX(PB12, PA11, PA8, spi2);
 
 uint8_t UserInput;
 
 static int counter;
-
+static int invalids;
 
 uint8_t RF_RX_BUF[191];                             // RF Receive Buffer
 uint8_t len_RF_RX_BUF = sizeof(RF_RX_BUF);
@@ -48,10 +51,18 @@ void setup() {
 
   Serial.begin(115200);
 
+  spi2.setPins(PB14, PB15, PB13);
+
   while(!rf4463_TX.init())
     Serial.println("Init TX Failed");
   Serial.println("Init TX Success");  
-  rf4463_TX.setTxPower(0x7F);  
+  rf4463_TX.setTxPower(0x7F); 
+
+  while(!rf4463_RX.init())
+    Serial.println("Init RX Failed");
+  Serial.println("Init RX Success");
+  rf4463_RX.setModeRx();
+ 
 
   Clr_RF_RX_BUF();                                 
 }
@@ -103,6 +114,7 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
+
                   break;
 
         case 2 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -122,6 +134,7 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
+
                   break;
 
         case 3 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -141,6 +154,7 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
+
                   break;
 
         case 4 :  Serial.print("Ground Segment, Data Transmit : [");
@@ -160,6 +174,7 @@ void loop() {
                   Serial.print(counter);
                   Serial.println(" Data");
                   Serial.println("+++++++");
+                  
                   break;
 
         case 5 :  Serial.print("Ground Segment, Data Transmit : [");

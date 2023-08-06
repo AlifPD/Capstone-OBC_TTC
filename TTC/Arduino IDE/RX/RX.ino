@@ -1,14 +1,13 @@
 #include <RH_RF24.h>  // include Si446x.h library
 #include <RHSoftwareSPI.h>
 
-#define Max_Packet_Size 128
 #define rf_receive PA12
 #define rf_transmit PB3
 #define power_hpa PA1
 
 RHSoftwareSPI spi2;
 
-uint8_t buf[5] = {0xFF};
+uint8_t buf[191] = {0xFF};
 uint8_t len = sizeof(buf);
 
 static int counter;   // Variable to count number of received data
@@ -37,6 +36,7 @@ void setup() {
     Serial.println("Init Failed");
   Serial.println("Success");
   rf4463.setModeRx();
+  Serial.println(rf4463.maxMessageLength());
 }
 
 // Main Loop function
@@ -46,9 +46,9 @@ void loop() {
     Serial.print(counter);
     Serial.print(" --> Received Message: ");
     
-    for(int i=0; i<8; i++){
-    Serial.print(buf[i]);
+    for(int i=0; i<191; i++){
     Serial.print(" ");
+    Serial.print(buf[i], HEX);
     }
     Serial.println();
   } else {
@@ -58,7 +58,8 @@ void loop() {
     invalids++;
   }
   counter++;
-  delay(100);
+
+  delay(500);
 }
 
 void SystemClock_Config(void)

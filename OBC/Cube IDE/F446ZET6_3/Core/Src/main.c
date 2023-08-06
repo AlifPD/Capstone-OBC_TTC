@@ -298,7 +298,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	  printf("Waiting Data from Ground\r\n");
-	  Clr_I2C_RX_BUF();
+//	  Clr_I2C_RX_BUF();
 	  if(HAL_I2C_Master_Receive(&hi2c1, ADDR_TTC<<1, I2C_RX_BUF, 55, HAL_MAX_DELAY) == HAL_OK){
 		  printf("Data Received by OBC from Ground: [");
 		  for(int i=0; i<sizeof(I2C_RX_BUF); i++){
@@ -321,13 +321,13 @@ int main(void)
 				  printf("Data Returned to Ground\n\r");
 			  }
 
-			  Clr_I2C_ADDR();
-			  Clr_I2C_TX_BUF();
+//			  Clr_I2C_ADDR();
+//			  Clr_I2C_TX_BUF();
 		  }
-		  Clr_I2C_RX_BUF();
+//		  Clr_I2C_RX_BUF();
 	  } else {
 		  printf("NO DATA RECEIVED, Continue Waiting\n\r");
-		  Clr_I2C_RX_BUF();
+//		  Clr_I2C_RX_BUF();
 	  }
   }
   /* USER CODE END 3 */
