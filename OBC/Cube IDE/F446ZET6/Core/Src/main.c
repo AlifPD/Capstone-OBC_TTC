@@ -24,6 +24,7 @@
 #include <stdio.h>
 #include "w25qxx.h"
 #include "dummy_data.h"
+#include <stdlib.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -49,9 +50,10 @@ SPI_HandleTypeDef hspi1;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-uint8_t buffer[4096] = {0};
-bool initRes = false;
-uint8_t i2cbuf[1];
+int RAND_NUM;
+uint8_t buf[256];
+int valid;
+int error;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -111,33 +113,120 @@ int main(void)
   MX_USART1_UART_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-//  HAL_GPIO_WritePin(SELECTOR_GPIO_Port, SELECTOR_Pin, GPIO_PIN_SET);
-//  if(!W25qxx_Init()){
-//  	  initRes = false;
-//  }else{
-//	  initRes = true;
-//  }
-//
-//  HAL_GPIO_WritePin(SELECTOR_GPIO_Port, SELECTOR_Pin, GPIO_PIN_RESET);
-//  while(!W25qxx_Init()){
-//	  initRes = false;
-//  }
-//  initRes = true;
-//
-//  W25qxx_ReadSector(buffer, 3, 0, 4096);
-//  W25qxx_EraseSector(3);
-//  W25qxx_ReadSector(buffer, 3, 0, 4096);
-//  W25qxx_WriteSector(dummy1, 3, 0, 4096);
-//  W25qxx_ReadSector(buffer, 3, 0, 4096);
-  HAL_GPIO_WritePin(SELECTOR_GPIO_Port, SELECTOR_Pin, GPIO_PIN_RESET);
-  printf("Waiting for Data\n\r");
-  if(HAL_I2C_Master_Receive(&hi2c1, 92, i2cbuf, 1, HAL_MAX_DELAY) == HAL_OK){
-	  printf("Data received: %d\n\r", i2cbuf[0]);
-	  if(i2cbuf[0] == 1){
-		  HAL_GPIO_WritePin(SELECTOR_GPIO_Port, SELECTOR_Pin, GPIO_PIN_SET);
+  W25qxx_Init();
+
+  if(w25qxx.ID == 7){
+	  printf("ID		--> W25Q64\n\r");
+  }else{
+	  printf("ID		--> Other\n\r");
+  }
+
+  printf("Capacity	--> %lu Bytes\n\r", (w25qxx.CapacityInKiloByte)*1024);
+  printf("Block		--> %lu Block, %lu Bytes each\n\r", w25qxx.BlockCount, w25qxx.BlockSize);
+  printf("Sector		--> %lu Sector, %lu Bytes each\n\r", w25qxx.SectorCount, w25qxx.SectorSize);
+  printf("Page		--> %lu Page, %hu Bytes each\n\n\r", w25qxx.PageCount, w25qxx.PageSize);
+
+  printf("Clearing NOR\n\r");
+  for(int i=0; i<2048; i++){
+	  W25qxx_EraseSector(i);
+  }
+
+  printf("Writing to NOR\n\r");
+  for(int i=0; i<32768; i++){
+	  srand(i);
+	  RAND_NUM = rand() % 8;
+
+	  switch(RAND_NUM){
+	  	  case	0	:	W25qxx_WritePage(dum_1, i, 0, 256); break;
+	  	  case	1	:	W25qxx_WritePage(dum_2, i, 0, 256); break;
+	  	  case	2	:	W25qxx_WritePage(dum_3, i, 0, 256); break;
+	  	  case	3	:	W25qxx_WritePage(dum_4, i, 0, 256); break;
+	  	  case	4	:	W25qxx_WritePage(dum_5, i, 0, 256); break;
+	  	  case	5	:	W25qxx_WritePage(dum_6, i, 0, 256); break;
+	  	  case	6	:	W25qxx_WritePage(dum_7, i, 0, 256); break;
+	  	  case	7	:	W25qxx_WritePage(dum_8, i, 0, 256); break;
 	  }
   }
-  printf("DONE\n\r");
+  printf("Data Written to NOR\n\n\r");
+
+  printf("Validating Data\n\r");
+  for(int i=0; i<32768; i++){
+	  W25qxx_ReadPage(buf, i, 0, 256);
+	  switch(buf[0]){
+	  	  case	0x01 :	for(int j=0; j<256; j++){
+	  		  	  	  		if(buf[j] != dum_1[j]){
+	  		  	  	  			printf("Data Number %d ERROR\n\r", i);
+	  		  	  	  			error++;
+	  		  	  	  			break;
+	  		  	  	  		}
+	  	  	  	  	  	}
+	  	  	  	  	  	break;
+	  	  case	0x02 :	for(int j=0; j<256; j++){
+	  		  	  	  		if(buf[j] != dum_2[j]){
+	  		  	  	  			printf("Data Number %d ERROR\n\r", i);
+	  		  	  	  			error++;
+	  		  	  	  			break;
+	  		  	  	  		}
+	  	  	  	  	  	}
+	  	  	  	  	  	break;
+	  	  case	0x03 :	for(int j=0; j<256; j++){
+	  		  	  	  		if(buf[j] != dum_3[j]){
+	  		  	  	  			printf("Data Number %d ERROR\n\r", i);
+	  		  	  	  			error++;
+	  		  	  	  			break;
+	  		  	  	  		}
+	  	  	  	  	  	}
+	  	  	  	  	  	break;
+	  	  case	0x04 :	for(int j=0; j<256; j++){
+	  		  	  	  		if(buf[j] != dum_4[j]){
+	  		  	  	  			printf("Data Number %d ERROR\n\r", i);
+	  		  	  	  			error++;
+	  		  	  	  			break;
+	  		  	  	  		}
+	  	  	  	  	  	}
+	  	  	  	  	  	break;
+	  	  case	0x05 :	for(int j=0; j<256; j++){
+	  		  	  	  		if(buf[j] != dum_5[j]){
+	  		  	  	  			printf("Data Number %d ERROR\n\r", i);
+	  		  	  	  			error++;
+	  		  	  	  			break;
+	  		  	  	  		}
+	  	  	  	  	  	}
+	  	  	  	  	  	break;
+	  	  case	0x06 :	for(int j=0; j<256; j++){
+	  		  	  	  		if(buf[j] != dum_6[j]){
+	  		  	  	  			printf("Data Number %d ERROR\n\r", i);
+	  		  	  	  			error++;
+	  		  	  	  			break;
+	  		  	  	  		}
+	  	  	  	  	  	}
+	  	  	  	  	  	break;
+	  	  case	0x07 :	for(int j=0; j<256; j++){
+	  		  	  	  		if(buf[j] != dum_7[j]){
+	  		  	  	  			printf("Data Number %d ERROR\n\r", i);
+	  		  	  	  			error++;
+	  		  	  	  			break;
+	  		  	  	  		}
+	  	  	  	  	  	}
+	  	  	  	  	  	break;
+	  	  case	0x08 :	for(int j=0; j<256; j++){
+	  		  	  	  		if(buf[j] != dum_8[j]){
+	  		  	  	  			printf("Data Number %d ERROR\n\r", i);
+	  		  	  	  			error++;
+	  		  	  	  			break;
+	  		  	  	  		}
+	  	  	  	  	  	}
+	  	  	  	  	  	break;
+
+	  }
+	  printf("Data Number %d VALID\n\r", i);
+	  valid++;
+  }
+
+  printf("\n\r+++ SUMMARY +++\n\r");
+  printf("Data Error	: %d\n\r", error);
+  printf("Data Valid	: %d\n\r", valid);
+  printf("Error Rate	: %f\n\n\r", (error/valid)*100);
   /* USER CODE END 2 */
 
   /* Infinite loop */

@@ -61,7 +61,7 @@ main-build: F446ZET6.elf secondary-outputs
 
 # Tool invocations
 F446ZET6.elf F446ZET6.map: $(OBJS) $(USER_OBJS) E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube\ IDE\F446ZET6\STM32F446ZETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "F446ZET6.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"E:\Kampus\TA\Code\Capstone-OBC_TTC\OBC\Cube IDE\F446ZET6\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446ZET6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

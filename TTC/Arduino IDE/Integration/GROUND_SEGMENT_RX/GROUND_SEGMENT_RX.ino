@@ -1,4 +1,4 @@
-#include <RH_RF24.h>  // include Si446x.h library
+#include <RH_RF24.h>
 #include <RHSoftwareSPI.h>
 
 #define rf_receive PA12
@@ -10,13 +10,12 @@ RHSoftwareSPI spi2;
 uint8_t buf[191];
 uint8_t len = sizeof(buf);
 
-static int counter;   // Variable to count number of received data
-static int invalids;  // Variable to count number of failed received data
+static int counter;
+static int invalids; 
 
 
-RH_RF24 rf4463(PB12, PA11, PA8, spi2);  // Initialize RF4463 Object
+RH_RF24 rf4463(PB12, PA11, PA8, spi2);
 
-// Main Setup function
 void setup() {
   SystemClock_Config();
 
@@ -34,13 +33,12 @@ void setup() {
 
   if (!rf4463.init())
     Serial.println("Init Failed");
-  Serial.println("Success");
+  Serial.println("Init Success");
   rf4463.setModeRx();
 
   Clr_Buf();
 }
 
-// Main Loop function
 void loop() {
   if (rf4463.recv(buf, &len)) {
     Serial.print("Tries : ");

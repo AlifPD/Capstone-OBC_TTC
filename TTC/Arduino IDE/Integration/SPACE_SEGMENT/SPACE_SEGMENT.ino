@@ -102,7 +102,7 @@ void loop() {
     Serial.println("]");
 
     rf4463_TX.setModeTx();
-    delay(1000);
+    delay(5000);
     digitalWrite(RF_RX_SWC, LOW);
     digitalWrite(RF_TX_SWC, HIGH);
     digitalWrite(HPA_PWR, HIGH);
@@ -114,6 +114,8 @@ void loop() {
           Serial.print(RF_TX_BUF[i], HEX);
         }
         Serial.println("]");
+        delay(2500);
+        HAL_NVIC_SystemReset();
     }else{
       Serial.println("Transmit Failed");
     }

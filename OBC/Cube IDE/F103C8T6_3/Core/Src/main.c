@@ -74,7 +74,7 @@ uint8_t ADDR_I2C		=	0xFF;	// BUFFER to store Address to send
 uint8_t I2C_RX_BUF[55]; // BUFFER to Receive Data from other Payloads/Boards
 uint8_t I2C_TX_BUF[191]; // BUFFER to Transmit Command and Data to other Payloads/Boards
 uint8_t NOR_BUF[186];
-uint8_t rx_data;
+uint8_t rx_data[1] = {0};
 int RAND_NUM;
 
 // Status
@@ -246,9 +246,6 @@ void Clr_NOR_BUF();
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-//void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
-//	  HAL_UART_Receive_IT(&huart1, &rx_data, 1);
-//}
 /* USER CODE END 0 */
 
 /**
@@ -281,23 +278,11 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_I2C1_Init();
   MX_SPI1_Init();
   MX_USART1_UART_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-//  HAL_UART_Receive_IT(&huart1, &rx_data, 1);
-  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
-
-//  HAL_SuspendTick();
-//  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
-//  HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
-//  HAL_ResumeTick();
-  W25qxx_Init();
-  W25qxx_WritePage(dum1, 0, 0, 186);
-  W25qxx_WritePage(dum2, 1, 0, 186);
-  W25qxx_WritePage(dum3, 2, 0, 186);
-  W25qxx_WritePage(dum4, 3, 0, 186);
-  W25qxx_WritePage(dum5, 4, 0, 186);
+  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -307,35 +292,22 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  printf("Waiting Data from Ground\r\n");
-	  if(HAL_I2C_Master_Receive(&hi2c1, ADDR_TTC<<1, I2C_RX_BUF, 55, HAL_MAX_DELAY) == HAL_OK){
-		  printf("Data Received by OBC from Ground: [");
-		  for(int i=0; i<sizeof(I2C_RX_BUF); i++){
-			  printf(" %d", I2C_RX_BUF[i]);
-		  }
-		  printf("]\n\r");
+	  if(HAL_UART_Receive(&huart1, &rx_data, 1, HAL_MAX_DELAY) == HAL_OK){
+		  if(rx_data[0] == 1){
+			  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+			  if(HAL_I2C_Master_Receive(&hi2c1, ADDR_TTC<<1, I2C_RX_BUF, 55, HAL_MAX_DELAY) == HAL_OK){
+				  if(I2C_RX_BUF[4] == 1){
+					  ParseCMD();
 
-		  if(I2C_RX_BUF[4] == 1){
-			  ParseCMD();
-
-			  printf("Address to Send Data: %d\n\r", ADDR_I2C);
-
-			  printf("Data Transmitted by OBC: [");
-			  for(int i=0; i<sizeof(I2C_TX_BUF); i++){
-				  printf(" %d", I2C_TX_BUF[i]);
+					  if(HAL_I2C_Master_Transmit(&hi2c1, ADDR_TTC<<1, I2C_TX_BUF, 191, HAL_MAX_DELAY) == HAL_OK){
+					  }
+					  Clr_I2C_TX_BUF();
+				  }
 			  }
-			  printf("]\n\r");
-
-			  if(HAL_I2C_Master_Transmit(&hi2c1, ADDR_TTC<<1, I2C_TX_BUF, 191, HAL_MAX_DELAY) == HAL_OK){
-				  printf("Data Returned to Ground\n\r");
-				  Clr_I2C_TX_BUF();
-			  }
+			  Clr_I2C_RX_BUF();
 		  }
-	  } else {
-		  printf("NO DATA RECEIVED, Continue Waiting\n\r");
 	  }
-
-	  Clr_I2C_RX_BUF();
+	  rx_data[0] = 0;
   }
   /* USER CODE END 3 */
 }
@@ -500,7 +472,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(FLASH_CS_GPIO_Port, FLASH_CS_Pin, GPIO_PIN_RESET);
